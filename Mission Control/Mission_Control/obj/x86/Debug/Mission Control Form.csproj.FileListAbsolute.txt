@@ -7,3 +7,5 @@ C:\Users\Paul\Downloads\Projet-Info-2A-Mission-Control-7a6efcbb03947907932fe9635
 C:\Users\Paul\Downloads\Projet-Info-2A-Mission-Control-7a6efcbb03947907932fe9635bc444f4b534be18\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.exe
 C:\Users\Paul\Downloads\Projet-Info-2A-Mission-Control-7a6efcbb03947907932fe9635bc444f4b534be18\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.pdb
 C:\Users\Paul\Downloads\Projet-Info-2A-Mission-Control-7a6efcbb03947907932fe9635bc444f4b534be18\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.csprojResolveAssemblyReference.cache
+C:\Users\Paul\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.exe
+C:\Users\Paul\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.pdb

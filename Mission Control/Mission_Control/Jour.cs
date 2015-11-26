@@ -16,27 +16,33 @@ namespace Mission_Control
             // journée type
             activitées = new List<Activitée>();
 
-            Activitée a = new Activitée("Living", "Spleeping", 0, 7, this.num);
+            Activitée a = new Activitée("Living", "Spleeping", 0, 420, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating", 7, 8, this.num);
+            a = new Activitée("Living", "Eating", 420, 480, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Private", 8, 12, this.num);
+            a = new Activitée("Living", "Private", 480, 720, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating",12, 14, this.num);
+            a = new Activitée("Living", "Eating",720, 840, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Private", 14, 19, this.num);
+            a = new Activitée("Living", "Private", 840, 1140, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating", 19, 21, this.num);
+            a = new Activitée("Living", "Eating", 1440, 1260, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Private", 21, 23, this.num);
+            a = new Activitée("Living", "Private", 1260, 1380, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Sleeping", 23, 24, this.num);
+            a = new Activitée("Living", "Sleeping", 1380, 1480, this.num);
             activitées.Add(a);
         }
 
         public int getNum()
         {
             return num;
+        }
+
+        public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour){
+            Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour);
+
+
         }
 
     }

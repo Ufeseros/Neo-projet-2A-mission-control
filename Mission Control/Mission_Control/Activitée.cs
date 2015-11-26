@@ -9,8 +9,8 @@ namespace Mission_Control
     {
         private string categorie;
         private string libelle;
-        private int tempsdébut;
-        private int tempsfin;
+        private int tempsdébut;         //  exprimé en minutes
+        private int tempsfin;           // exprimé en minutes
         private int numJour;
         private List<Astronaute> participants;
 
@@ -34,7 +34,5 @@ namespace Mission_Control
 
             participants = new List<Astronaute>();
         }
-    
-    
     }
 }
