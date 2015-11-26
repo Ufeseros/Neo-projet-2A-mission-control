@@ -34,5 +34,11 @@ namespace Mission_Control
 
             participants = new List<Astronaute>();
         }
+
+        public string getLibelle()
+        {
+            return libelle;
+        }
+
     }
 }

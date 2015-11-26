@@ -31,6 +31,7 @@
             this.chargerMission = new System.Windows.Forms.Button();
             this.AfficheJours = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
+            this.AfficheActivitée = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // chargerMission
@@ -50,6 +51,7 @@
             this.AfficheJours.Size = new System.Drawing.Size(121, 657);
             this.AfficheJours.TabIndex = 1;
             this.AfficheJours.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfficheJours_AfterSelect);
+            this.AfficheJours.EnabledChanged += new System.EventHandler(this.AfficheJours_EnabledChanged);
             // 
             // button1
             // 
@@ -61,11 +63,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // AfficheActivitée
+            // 
+            this.AfficheActivitée.Location = new System.Drawing.Point(372, 12);
+            this.AfficheActivitée.Name = "AfficheActivitée";
+            this.AfficheActivitée.Size = new System.Drawing.Size(438, 214);
+            this.AfficheActivitée.TabIndex = 3;
+            this.AfficheActivitée.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Activitee_jour_AfterSelect);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.AfficheActivitée);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.AfficheJours);
             this.Controls.Add(this.chargerMission);
@@ -80,6 +91,7 @@
         private System.Windows.Forms.Button chargerMission;
         private System.Windows.Forms.TreeView AfficheJours;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TreeView AfficheActivitée;
     }
 }
 

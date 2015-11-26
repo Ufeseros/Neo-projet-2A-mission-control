@@ -28,5 +28,15 @@ namespace Mission_Control
             return jours;
         }
 
+        public Jour getJouri(int i)
+        {
+            foreach (Jour j in jours)
+            {
+                if (j.getNum() == i)
+                    return j;
+            }
+            return jours.First();
+        }
+
     }
 }

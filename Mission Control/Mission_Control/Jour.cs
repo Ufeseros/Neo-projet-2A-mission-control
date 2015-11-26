@@ -41,9 +41,11 @@ namespace Mission_Control
 
         public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour){
             Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour);
-
-
         }
 
+        public List<Activitée> getActivitées()
+        {
+            return activitées;
+        }
     }
 }
