@@ -15,3 +15,11 @@ C:\Users\Paul\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mis
 C:\Users\Paul\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.FormCarte.resources
 C:\Users\Paul\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.Properties.Resources.resources
 C:\Users\Paul\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.csproj.GenerateResource.Cache
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.exe
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.pdb
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\bin\Debug\Mission Control Form.exe
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\bin\Debug\Mission Control Form.pdb
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.Form1.resources
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.FormCarte.resources
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.Properties.Resources.resources
+C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.csproj.GenerateResource.Cache

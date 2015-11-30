@@ -12,6 +12,7 @@ namespace Mission_Control
         private int tempsdébut;         //  exprimé en minutes
         private int tempsfin;           // exprimé en minutes
         private int numJour;
+        private Lieu lieu;
         private List<Astronaute> participants;
 
         public Activitée()
@@ -21,6 +22,7 @@ namespace Mission_Control
             tempsdébut = 0;
             tempsfin = 0;
             numJour = 1;
+            lieu=
             participants = new List<Astronaute>();
         }
 

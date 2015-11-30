@@ -55,6 +55,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAjoutActivite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAjoutActivite.Designer.cs">
+      <DependentUpon>FormAjoutActivite.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCarte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAjoutActivite.resx">
+      <DependentUpon>FormAjoutActivite.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCarte.resx">
       <DependentUpon>FormCarte.cs</DependentUpon>
