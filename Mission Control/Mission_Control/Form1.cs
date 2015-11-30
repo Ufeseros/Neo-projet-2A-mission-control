@@ -11,7 +11,7 @@ namespace Mission_Control
 {
     public partial class Form1 : Form
     {
-        Mission  M = new Mission(500, "images/nanedi valles.jpg", "Mission test");
+        Mission  M = new Mission(500, "images/nanedi valles.jpg", "Default");
 
         public Form1()
         {
@@ -33,17 +33,23 @@ namespace Mission_Control
             }
         }
 
-        private void AfficheJours_AfterSelect(object sender, TreeViewEventArgs e)
+        public void refreshActivitée(int numJour)
         {
-            int num = int.Parse(AfficheJours.SelectedNode.Text);
-            Jour tmp = M.getJouri(num);
 
             AfficheActivitée.Nodes.Clear();
 
-            foreach (Activitée a in tmp.getActivitées())
+            foreach (Activitée a in M.getJouri(numJour).getActivitées())
             {
-               AfficheActivitée.Nodes.Add(a.getLibelle());
+                AfficheActivitée.Nodes.Add(a.getLibelle());
             }
+        }
+
+        private void AfficheJours_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            int num = int.Parse(AfficheJours.SelectedNode.Text);
+
+            refreshActivitée(num);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +66,16 @@ namespace Mission_Control
         private void AfficheJours_EnabledChanged(object sender, EventArgs e)
         {
          
+        }
+
+        private void jourPrec_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jourSuiv_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
