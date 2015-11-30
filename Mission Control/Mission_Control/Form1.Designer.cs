@@ -35,6 +35,12 @@
             this.jourPrec = new System.Windows.Forms.Button();
             this.jourSuiv = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LabelCategorieActivitee = new System.Windows.Forms.Label();
+            this.LabelLibelleActivitee = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chargerMission
@@ -103,11 +109,63 @@
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.LabelLibelleActivitee);
+            this.groupBox1.Controls.Add(this.LabelCategorieActivitee);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(372, 286);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(437, 118);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Détails de l\'activitée";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Categorie :";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Libelle :";
+            // 
+            // LabelCategorieActivitee
+            // 
+            this.LabelCategorieActivitee.AutoSize = true;
+            this.LabelCategorieActivitee.Location = new System.Drawing.Point(110, 34);
+            this.LabelCategorieActivitee.Name = "LabelCategorieActivitee";
+            this.LabelCategorieActivitee.Size = new System.Drawing.Size(35, 13);
+            this.LabelCategorieActivitee.TabIndex = 2;
+            this.LabelCategorieActivitee.Text = "label3";
+            // 
+            // LabelLibelleActivitee
+            // 
+            this.LabelLibelleActivitee.AutoSize = true;
+            this.LabelLibelleActivitee.Location = new System.Drawing.Point(94, 61);
+            this.LabelLibelleActivitee.Name = "LabelLibelleActivitee";
+            this.LabelLibelleActivitee.Size = new System.Drawing.Size(35, 13);
+            this.LabelLibelleActivitee.TabIndex = 3;
+            this.LabelLibelleActivitee.Text = "label4";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.jourSuiv);
             this.Controls.Add(this.jourPrec);
@@ -117,6 +175,8 @@
             this.Controls.Add(this.chargerMission);
             this.Name = "Form1";
             this.Text = "Controle de mission";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -130,6 +190,11 @@
         private System.Windows.Forms.Button jourPrec;
         private System.Windows.Forms.Button jourSuiv;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LabelLibelleActivitee;
+        private System.Windows.Forms.Label LabelCategorieActivitee;
     }
 }
 

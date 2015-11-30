@@ -25,31 +25,41 @@ namespace Mission_Control
         }
 
 
-        public void refreshJours()
+        private void refreshJours()
         {
+            AfficheJours.Nodes.Clear();
+
+            TreeNode node;
+
             foreach (Jour j in M.getJours())
             {
-                AfficheJours.Nodes.Add((j.getNum()).ToString());
+                node = new TreeNode("Jour " + (j.getNum()).ToString());
+                node.Tag = j;
+                AfficheJours.Nodes.Add(node);
             }
         }
 
-        public void refreshActivitée(int numJour)
+        private void refreshActivitée(Jour j)
         {
 
             AfficheActivitée.Nodes.Clear();
 
-            foreach (Activitée a in M.getJouri(numJour).getActivitées())
+            TreeNode node;
+
+            foreach (Activitée a in j.getActivitées())
             {
-                AfficheActivitée.Nodes.Add(a.getLibelle());
+                node = new TreeNode(a.getLibelle());
+                node.Tag = a;
+                AfficheActivitée.Nodes.Add(node);
+ 
             }
         }
 
         private void AfficheJours_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            int num = int.Parse(AfficheJours.SelectedNode.Text);
+            Jour j = (Jour)AfficheJours.SelectedNode.Tag;
 
-            refreshActivitée(num);
-
+            refreshActivitée(j);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,6 +70,9 @@ namespace Mission_Control
 
         private void Activitee_jour_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            groupBox1.Visible = true;
+            Activitée a = (Activitée)AfficheActivitée.SelectedNode.Tag;
+            LabelLibelleActivitee.Text = a.getLibelle();
 
         }
 
@@ -70,10 +83,38 @@ namespace Mission_Control
 
         private void jourPrec_Click(object sender, EventArgs e)
         {
+            if (AfficheJours.SelectedNode.PrevNode != null)
+            {
+                AfficheJours.SelectedNode = AfficheJours.SelectedNode.PrevNode;
 
+                Jour j = (Jour)AfficheJours.SelectedNode.Tag;
+                refreshActivitée(j);
+               
+            }
+            AfficheJours.Focus();
         }
 
         private void jourSuiv_Click(object sender, EventArgs e)
+        {
+            if (AfficheJours.SelectedNode.NextNode!= null)
+            {
+                AfficheJours.SelectedNode = AfficheJours.SelectedNode.NextNode;
+
+                int num = int.Parse(AfficheJours.SelectedNode.Text);
+
+                Jour j = (Jour)AfficheJours.SelectedNode.Tag;
+                refreshActivitée(j);
+                
+            }
+            AfficheJours.Focus();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
