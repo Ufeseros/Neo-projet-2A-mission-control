@@ -22,7 +22,7 @@ namespace Mission_Control
             tempsdébut = 0;
             tempsfin = 0;
             numJour = 1;
-            lieu=
+            lieu = new Lieu(0,0,"default");
             participants = new List<Astronaute>();
         }
 
