@@ -16,19 +16,29 @@ namespace Mission_Control
             this.x =0;
             this.y = 0;
             this.nom = "base";
-        
         }
 
         public Lieu(int x, int y)
         {
             this.x = x;
             this.y = y;
+        }
 
+        public Lieu(int x, int y, string nom)
+        {
+            this.x = x;
+            this.y = y;
+            this.nom = nom;
         }
 
         public void setNom(string nom)
         {
             this.nom = nom;
+        }
+
+        public string getNom()
+        {
+            return nom;
         }
         
     }

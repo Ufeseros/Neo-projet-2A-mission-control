@@ -34,6 +34,8 @@ namespace Mission_Control
             this.tempsfin = tempsfin;
             this.numJour = numJour;
 
+            lieu = new Lieu(0, 0, "default");    // temporaire
+
             participants = new List<Astronaute>();
         }
 
@@ -42,5 +44,24 @@ namespace Mission_Control
             return libelle;
         }
 
+        public string getCategorie()
+        {
+            return categorie;
+        }
+
+        public int getDebut()
+        {
+            return tempsdébut;
+        }
+
+        public int getFin()
+        {
+            return tempsfin;
+        }
+
+        public Lieu getLieu()
+        {
+            return lieu;
+        }
     }
 }

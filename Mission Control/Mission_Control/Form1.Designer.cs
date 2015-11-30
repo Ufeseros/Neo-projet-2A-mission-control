@@ -41,6 +41,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTempsLocal = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelHeureDebut = new System.Windows.Forms.Label();
+            this.labelHeureFin = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelLieu = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +118,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelLieu);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.labelHeureFin);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.labelHeureDebut);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.LabelLibelleActivitee);
             this.groupBox1.Controls.Add(this.LabelCategorieActivitee);
             this.groupBox1.Controls.Add(this.label2);
@@ -172,6 +184,61 @@
             this.labelTempsLocal.Text = "label3";
             this.labelTempsLocal.Click += new System.EventHandler(this.label3_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(189, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Heure début :";
+            // 
+            // labelHeureDebut
+            // 
+            this.labelHeureDebut.AutoSize = true;
+            this.labelHeureDebut.Location = new System.Drawing.Point(261, 35);
+            this.labelHeureDebut.Name = "labelHeureDebut";
+            this.labelHeureDebut.Size = new System.Drawing.Size(35, 13);
+            this.labelHeureDebut.TabIndex = 5;
+            this.labelHeureDebut.Text = "label4";
+            // 
+            // labelHeureFin
+            // 
+            this.labelHeureFin.AutoSize = true;
+            this.labelHeureFin.Location = new System.Drawing.Point(261, 61);
+            this.labelHeureFin.Name = "labelHeureFin";
+            this.labelHeureFin.Size = new System.Drawing.Size(35, 13);
+            this.labelHeureFin.TabIndex = 7;
+            this.labelHeureFin.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(189, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Heure fin :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(45, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Lieu :";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // labelLieu
+            // 
+            this.labelLieu.AutoSize = true;
+            this.labelLieu.Location = new System.Drawing.Point(84, 89);
+            this.labelLieu.Name = "labelLieu";
+            this.labelLieu.Size = new System.Drawing.Size(35, 13);
+            this.labelLieu.TabIndex = 9;
+            this.labelLieu.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +277,12 @@
         private System.Windows.Forms.Label LabelLibelleActivitee;
         private System.Windows.Forms.Label LabelCategorieActivitee;
         private System.Windows.Forms.Label labelTempsLocal;
+        private System.Windows.Forms.Label labelHeureFin;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelHeureDebut;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelLieu;
     }
 }
 

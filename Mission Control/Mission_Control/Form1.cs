@@ -76,9 +76,33 @@ namespace Mission_Control
         {
             groupBox1.Visible = true;
             Activitée a = (Activitée)AfficheActivitée.SelectedNode.Tag;
+
             LabelLibelleActivitee.Text = a.getLibelle();
+            LabelCategorieActivitee.Text = a.getCategorie();
+            labelHeureDebut.Text = conversionHeure(a.getDebut());
+            labelHeureFin.Text = conversionHeure(a.getFin());
+            labelLieu.Text = a.getLieu().getNom();
+        }
+
+        private string conversionHeure(int temps)
+        {
+            int heures = (int)Math.Truncate((double)temps/60);
+            int minutes = temps - heures * 60;
+            string result;
+
+            if(heures < 10 && minutes < 10)
+                result = "0"+heures + "h0" + minutes;
+            else if(heures > 10 && minutes < 10)
+                result = heures + "h0" + minutes;
+            else if (heures < 10 && minutes > 10)
+                result = "0" + heures + "h" + minutes;
+            else
+                result = heures + "h" + minutes;
+
+            return result;
 
         }
+
 
         private void AfficheJours_EnabledChanged(object sender, EventArgs e)
         {
@@ -124,6 +148,11 @@ namespace Mission_Control
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
