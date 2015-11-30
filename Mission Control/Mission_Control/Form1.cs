@@ -12,10 +12,14 @@ namespace Mission_Control
     public partial class Form1 : Form
     {
         Mission  M = new Mission(500, "images/nanedi valles.jpg", "Default");
+        Timer tempsLocalTerre = new Timer();
 
         public Form1()
         {
             InitializeComponent();
+            tempsLocalTerre.Tick += (s, e) => {labelTempsLocal.Text = DateTime.Now.ToString(); };
+            tempsLocalTerre.Interval = 333;
+            tempsLocalTerre.Start();
         }
 
         private void chargerMission_Click(object sender, EventArgs e)
@@ -115,6 +119,11 @@ namespace Mission_Control
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
