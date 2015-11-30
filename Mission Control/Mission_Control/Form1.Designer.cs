@@ -36,10 +36,11 @@
             this.jourSuiv = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LabelCategorieActivitee = new System.Windows.Forms.Label();
             this.LabelLibelleActivitee = new System.Windows.Forms.Label();
+            this.LabelCategorieActivitee = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelTempsLocal = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,14 +58,14 @@
             // 
             this.AfficheJours.Location = new System.Drawing.Point(198, 12);
             this.AfficheJours.Name = "AfficheJours";
-            this.AfficheJours.Size = new System.Drawing.Size(121, 657);
+            this.AfficheJours.Size = new System.Drawing.Size(121, 392);
             this.AfficheJours.TabIndex = 1;
             this.AfficheJours.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfficheJours_AfterSelect);
             this.AfficheJours.EnabledChanged += new System.EventHandler(this.AfficheJours_EnabledChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 67);
+            this.button1.Location = new System.Drawing.Point(12, 43);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 2;
@@ -121,7 +122,35 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Détails de l\'activitée";
+            this.groupBox1.Visible = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // LabelLibelleActivitee
+            // 
+            this.LabelLibelleActivitee.AutoSize = true;
+            this.LabelLibelleActivitee.Location = new System.Drawing.Point(94, 61);
+            this.LabelLibelleActivitee.Name = "LabelLibelleActivitee";
+            this.LabelLibelleActivitee.Size = new System.Drawing.Size(35, 13);
+            this.LabelLibelleActivitee.TabIndex = 3;
+            this.LabelLibelleActivitee.Text = "label4";
+            // 
+            // LabelCategorieActivitee
+            // 
+            this.LabelCategorieActivitee.AutoSize = true;
+            this.LabelCategorieActivitee.Location = new System.Drawing.Point(110, 34);
+            this.LabelCategorieActivitee.Name = "LabelCategorieActivitee";
+            this.LabelCategorieActivitee.Size = new System.Drawing.Size(35, 13);
+            this.LabelCategorieActivitee.TabIndex = 2;
+            this.LabelCategorieActivitee.Text = "label3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(45, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Libelle :";
             // 
             // label1
             // 
@@ -133,38 +162,22 @@
             this.label1.Text = "Categorie :";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // labelTempsLocal
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Libelle :";
-            // 
-            // LabelCategorieActivitee
-            // 
-            this.LabelCategorieActivitee.AutoSize = true;
-            this.LabelCategorieActivitee.Location = new System.Drawing.Point(110, 34);
-            this.LabelCategorieActivitee.Name = "LabelCategorieActivitee";
-            this.LabelCategorieActivitee.Size = new System.Drawing.Size(35, 13);
-            this.LabelCategorieActivitee.TabIndex = 2;
-            this.LabelCategorieActivitee.Text = "label3";
-            // 
-            // LabelLibelleActivitee
-            // 
-            this.LabelLibelleActivitee.AutoSize = true;
-            this.LabelLibelleActivitee.Location = new System.Drawing.Point(94, 61);
-            this.LabelLibelleActivitee.Name = "LabelLibelleActivitee";
-            this.LabelLibelleActivitee.Size = new System.Drawing.Size(35, 13);
-            this.LabelLibelleActivitee.TabIndex = 3;
-            this.LabelLibelleActivitee.Text = "label4";
+            this.labelTempsLocal.AutoSize = true;
+            this.labelTempsLocal.Location = new System.Drawing.Point(12, 86);
+            this.labelTempsLocal.Name = "labelTempsLocal";
+            this.labelTempsLocal.Size = new System.Drawing.Size(35, 13);
+            this.labelTempsLocal.TabIndex = 8;
+            this.labelTempsLocal.Text = "label3";
+            this.labelTempsLocal.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.labelTempsLocal);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.jourSuiv);
@@ -178,6 +191,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -195,6 +209,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LabelLibelleActivitee;
         private System.Windows.Forms.Label LabelCategorieActivitee;
+        private System.Windows.Forms.Label labelTempsLocal;
     }
 }
 
