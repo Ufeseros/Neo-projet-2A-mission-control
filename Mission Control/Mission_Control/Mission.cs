@@ -69,12 +69,12 @@ namespace Mission_Control
 
             XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
 
-            /*  
+           
             foreach (Jour j in jours)
             {
-                j.genereXml(xmlDoc, NodeListeJours);
+                j.genereXml(xmlDoc, nodeListeJours);
             }
-             */
+           
 
             nodeMission.AppendChild(nodeListeJours);
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace Mission_Control
 {
@@ -47,5 +49,28 @@ namespace Mission_Control
         {
             return activitées;
         }
+
+        public void genereXml(XmlDocument xmlDoc, XmlNode rootNode)
+        {
+            XmlNode nodeJour = xmlDoc.CreateElement("Jour");
+
+            XmlNode nodeNum = xmlDoc.CreateElement("num");
+            nodeNum.InnerText = num.ToString();
+            nodeJour.AppendChild(nodeNum);
+
+
+            XmlNode nodeListeActivitee = xmlDoc.CreateElement("ListeActivitee");
+
+
+            foreach (Activitée a in activitées)
+            {
+                a.genereXml(xmlDoc, nodeListeActivitee);
+            }
+
+
+            nodeJour.AppendChild(nodeListeActivitee);
+            rootNode.AppendChild(nodeJour);
+        }
+
     }
 }

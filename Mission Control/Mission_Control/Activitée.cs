@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
+
 
 namespace Mission_Control
 {
@@ -69,6 +72,46 @@ namespace Mission_Control
             this.lieu.sety(y);
             
         }
-        
+
+        // generation xml
+        public void genereXml(XmlDocument xmlDoc, XmlNode rootNode)
+        {
+
+            XmlNode nodeActivitee = xmlDoc.CreateElement("Activitee");
+
+            XmlNode nodeCategorie = xmlDoc.CreateElement("Categorie");
+            nodeCategorie.InnerText = categorie;
+            nodeActivitee.AppendChild(nodeCategorie);
+
+            XmlNode nodeLibelle = xmlDoc.CreateElement("Libelle");
+            nodeLibelle.InnerText = categorie;
+            nodeActivitee.AppendChild(nodeLibelle);
+
+            XmlNode nodeDebut = xmlDoc.CreateElement("HeureDebut");
+            nodeDebut.InnerText = tempsdébut.ToString();
+            nodeActivitee.AppendChild(nodeDebut);
+
+            XmlNode nodeFin = xmlDoc.CreateElement("HeureFin");
+            nodeFin.InnerText = tempsfin.ToString();
+            nodeActivitee.AppendChild(nodeFin);
+
+            XmlNode nodeNumJour = xmlDoc.CreateElement("NumJour");
+            nodeNumJour.InnerText = numJour.ToString();
+            nodeActivitee.AppendChild(nodeNumJour);
+
+            // lieu.genereXml
+
+            XmlNode nodeListeAstronaute = xmlDoc.CreateElement("ListeAstronaute");
+            /*          
+            foreach (Astronaute as in paritcipants)
+            {
+                as.genereXml(xmlDoc, NodeListeJours);
+            }
+            */
+            nodeActivitee.AppendChild(nodeListeAstronaute);
+            rootNode.AppendChild(nodeActivitee);
+        }
+
+
     }
 }
