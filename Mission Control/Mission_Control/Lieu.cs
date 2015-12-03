@@ -61,7 +61,6 @@ namespace Mission_Control
 
         public void genereXml(XmlDocument xmlDoc, XmlNode rootNode)
         {
-
             XmlNode nodeLieu = xmlDoc.CreateElement("Lieu");
 
             XmlNode nodeX = xmlDoc.CreateElement("x");
@@ -78,7 +77,5 @@ namespace Mission_Control
 
             rootNode.AppendChild(nodeLieu);
         }
-
-
     }
 }

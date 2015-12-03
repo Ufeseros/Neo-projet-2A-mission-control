@@ -14,7 +14,7 @@ namespace Mission_Control
 {
     public partial class Form1 : Form
     {
-        Mission  M = new Mission(500, "images/nanedi valles.jpg", "Default");
+        Mission M = new Mission(500, "images/nanedi valles.jpg", "Default");
         Timer tempsLocalTerre = new Timer();
         XmlDocument xmlDoc = new XmlDocument();
 
@@ -52,7 +52,20 @@ namespace Mission_Control
                 node = new TreeNode(conversionHeure(a.getDebut())+" "+a.getLibelle());
                 node.Tag = a;
                 AfficheActivitée.Nodes.Add(node);
- 
+            }
+        }
+
+        private void refreshAstronautes()
+        {
+            afficheAstronautes.Nodes.Clear();
+
+            TreeNode node;
+
+            foreach (Astronaute a in M.getAstronautes())
+            {
+                node = new TreeNode(a.getNom());
+                node.Tag = a;
+                afficheAstronautes.Nodes.Add(node);
             }
         }
 
@@ -156,6 +169,20 @@ namespace Mission_Control
         private void Form1_Load(object sender, EventArgs e)
         {
             refreshJours();
+            refreshAstronautes();
+        }
+
+        private void ajouterAstronaute_Click(object sender, EventArgs e)
+        {
+            groupBox2.Visible = true;
+        }
+
+        private void confirmationAjoutAstronaute_Click(object sender, EventArgs e)
+        {
+
+            M.addAstronaute(textBoxAjoutAstronaute.Text);
+            refreshAstronautes();
+            groupBox2.Visible = false;
         }
     }
 }

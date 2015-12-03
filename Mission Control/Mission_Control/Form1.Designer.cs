@@ -49,7 +49,15 @@
             this.labelTempsLocal = new System.Windows.Forms.Label();
             this.sauvegarderMission = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.afficheAstronautes = new System.Windows.Forms.TreeView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ajouterAstronaute = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
+            this.confirmationAjoutAstronaute = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // chargerMission
@@ -72,7 +80,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 101);
+            this.button1.Location = new System.Drawing.Point(15, 81);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 2;
@@ -82,15 +90,15 @@
             // 
             // AfficheActivitée
             // 
-            this.AfficheActivitée.Location = new System.Drawing.Point(372, 12);
+            this.AfficheActivitée.Location = new System.Drawing.Point(349, 12);
             this.AfficheActivitée.Name = "AfficheActivitée";
-            this.AfficheActivitée.Size = new System.Drawing.Size(438, 214);
+            this.AfficheActivitée.Size = new System.Drawing.Size(438, 128);
             this.AfficheActivitée.TabIndex = 3;
             this.AfficheActivitée.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Activitee_jour_AfterSelect);
             // 
             // jourPrec
             // 
-            this.jourPrec.Location = new System.Drawing.Point(372, 233);
+            this.jourPrec.Location = new System.Drawing.Point(349, 146);
             this.jourPrec.Name = "jourPrec";
             this.jourPrec.Size = new System.Drawing.Size(75, 23);
             this.jourPrec.TabIndex = 4;
@@ -100,7 +108,7 @@
             // 
             // jourSuiv
             // 
-            this.jourSuiv.Location = new System.Drawing.Point(735, 233);
+            this.jourSuiv.Location = new System.Drawing.Point(712, 146);
             this.jourSuiv.Name = "jourSuiv";
             this.jourSuiv.Size = new System.Drawing.Size(75, 23);
             this.jourSuiv.TabIndex = 5;
@@ -110,7 +118,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(552, 233);
+            this.button4.Location = new System.Drawing.Point(517, 146);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 6;
@@ -129,9 +137,9 @@
             this.groupBox1.Controls.Add(this.LabelCategorieActivitee);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(372, 286);
+            this.groupBox1.Location = new System.Drawing.Point(349, 175);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(437, 118);
+            this.groupBox1.Size = new System.Drawing.Size(438, 239);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Détails de l\'activitée";
@@ -246,11 +254,80 @@
             this.sauvegarderMission.UseVisualStyleBackColor = true;
             this.sauvegarderMission.Click += new System.EventHandler(this.sauvegarderMission_Click);
             // 
+            // afficheAstronautes
+            // 
+            this.afficheAstronautes.Location = new System.Drawing.Point(832, 28);
+            this.afficheAstronautes.Name = "afficheAstronautes";
+            this.afficheAstronautes.Size = new System.Drawing.Size(121, 98);
+            this.afficheAstronautes.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(829, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Astronautes";
+            // 
+            // ajouterAstronaute
+            // 
+            this.ajouterAstronaute.Location = new System.Drawing.Point(832, 177);
+            this.ajouterAstronaute.Name = "ajouterAstronaute";
+            this.ajouterAstronaute.Size = new System.Drawing.Size(121, 23);
+            this.ajouterAstronaute.TabIndex = 12;
+            this.ajouterAstronaute.Text = "Ajouter un astronaute";
+            this.ajouterAstronaute.UseVisualStyleBackColor = true;
+            this.ajouterAstronaute.Click += new System.EventHandler(this.ajouterAstronaute_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(832, 132);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(121, 39);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Supprimer un astronaute";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.confirmationAjoutAstronaute);
+            this.groupBox2.Controls.Add(this.textBoxAjoutAstronaute);
+            this.groupBox2.Location = new System.Drawing.Point(837, 210);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(159, 81);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Visible = false;
+            // 
+            // textBoxAjoutAstronaute
+            // 
+            this.textBoxAjoutAstronaute.Location = new System.Drawing.Point(6, 19);
+            this.textBoxAjoutAstronaute.Name = "textBoxAjoutAstronaute";
+            this.textBoxAjoutAstronaute.Size = new System.Drawing.Size(147, 20);
+            this.textBoxAjoutAstronaute.TabIndex = 0;
+            // 
+            // confirmationAjoutAstronaute
+            // 
+            this.confirmationAjoutAstronaute.Location = new System.Drawing.Point(41, 44);
+            this.confirmationAjoutAstronaute.Name = "confirmationAjoutAstronaute";
+            this.confirmationAjoutAstronaute.Size = new System.Drawing.Size(75, 23);
+            this.confirmationAjoutAstronaute.TabIndex = 1;
+            this.confirmationAjoutAstronaute.Text = "Ajouter";
+            this.confirmationAjoutAstronaute.UseVisualStyleBackColor = true;
+            this.confirmationAjoutAstronaute.Click += new System.EventHandler(this.confirmationAjoutAstronaute_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ajouterAstronaute);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.afficheAstronautes);
             this.Controls.Add(this.sauvegarderMission);
             this.Controls.Add(this.labelTempsLocal);
             this.Controls.Add(this.groupBox1);
@@ -266,6 +343,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,6 +373,13 @@
         private System.Windows.Forms.Label labelLieu;
         private System.Windows.Forms.Button sauvegarderMission;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.TreeView afficheAstronautes;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button ajouterAstronaute;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button confirmationAjoutAstronaute;
+        private System.Windows.Forms.TextBox textBoxAjoutAstronaute;
     }
 }
 

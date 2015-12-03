@@ -8,6 +8,14 @@ namespace Mission_Control
     class Astronaute
     {
         private string nom;
-        // o
+
+        public Astronaute(string nom)
+        {
+            this.nom = nom;
+        }
+
+        public string getNom(){
+        return nom;
+        }
     }
 }

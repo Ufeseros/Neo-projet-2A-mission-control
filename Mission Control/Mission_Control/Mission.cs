@@ -13,6 +13,7 @@ namespace Mission_Control
         private string carte;
         private string nom;
         private List<Jour> jours;
+        private List<Astronaute> astronautes;
 
         public Mission(int Durée, string carte, string nom)
         {
@@ -20,6 +21,7 @@ namespace Mission_Control
             this.carte = carte;
             this.nom = nom;
             jours = new List<Jour>();
+            astronautes = new List<Astronaute>();
             for (int i = 1; i <= Durée; i++)
             {
                 jours.Add(new Jour(i));
@@ -43,6 +45,16 @@ namespace Mission_Control
         public void setNom(string nom)
         {
             this.nom = nom;
+        }
+
+        public void addAstronaute(string nom)
+        {
+           astronautes.Add(new Astronaute(nom));
+        }
+
+        public List<Astronaute> getAstronautes()
+        {
+            return astronautes;
         }
 
         public void genereXml(XmlDocument xmlDoc)
