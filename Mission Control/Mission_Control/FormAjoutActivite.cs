@@ -11,8 +11,10 @@ namespace Mission_Control
 {
     public partial class FormAjoutActivite : Form
     {
+        Activitée acti_temp = new Activitée();
         public FormAjoutActivite()
         {
+            
             InitializeComponent();
         }
 
@@ -23,6 +25,19 @@ namespace Mission_Control
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
+        {
+            acti_temp.setCoord(e.X, e.Y);
+            Lieu monLieu=acti_temp.getLieu();
+            label2.Text=monLieu.ToString();
 
         }
     }

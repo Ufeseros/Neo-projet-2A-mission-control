@@ -40,6 +40,20 @@ namespace Mission_Control
         {
             return nom;
         }
-        
+        public void setx(int x)
+        {
+            this.x = x;
+            
+        }
+        public void sety(int y)
+        {
+            this.y = y;
+
+        }
+        public override string ToString()
+        {
+            string textCoord=String.Format("Coordonnées: {0},{1}",x,y);
+            return textCoord;
+        }
     }
 }
