@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.Xml;
+using System.IO;
 
 namespace Mission_Control
 {
@@ -13,6 +16,7 @@ namespace Mission_Control
     {
         Mission  M = new Mission(500, "images/nanedi valles.jpg", "Default");
         Timer tempsLocalTerre = new Timer();
+        XmlDocument xmlDoc = new XmlDocument();
 
         public Form1()
         {
@@ -21,13 +25,6 @@ namespace Mission_Control
             tempsLocalTerre.Interval = 333;
             tempsLocalTerre.Start();
         }
-
-        private void chargerMission_Click(object sender, EventArgs e)
-        {
-           M = new Mission(500, "images/nanedi valles.jpg", "Mission test");
-           refreshJours();
-        }
-
 
         private void refreshJours()
         {
@@ -104,10 +101,6 @@ namespace Mission_Control
         }
 
 
-        private void AfficheJours_EnabledChanged(object sender, EventArgs e)
-        {
-         
-        }
 
         private void jourPrec_Click(object sender, EventArgs e)
         {
@@ -137,25 +130,33 @@ namespace Mission_Control
             AfficheJours.Focus();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
+        private void chargerMission_Click(object sender, EventArgs e)
+        {
+            
+            refreshJours();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
+        private void sauvegarderMission_Click(object sender, EventArgs e)
+        {
+            xmlDoc = new XmlDocument();
+            saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "XML-File | *.xml";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                
+                string nomFichier = Path.GetFileNameWithoutExtension(saveFileDialog1.FileName);
+                M.setNom(nomFichier);
+                M.genereXml(xmlDoc);
+                xmlDoc.Save(saveFileDialog1.FileName);
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-
+            refreshJours();
         }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

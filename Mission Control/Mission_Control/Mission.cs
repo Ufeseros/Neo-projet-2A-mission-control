@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace Mission_Control
 {
@@ -38,5 +40,44 @@ namespace Mission_Control
             return jours.First();
         }
 
+        public void setNom(string nom)
+        {
+            this.nom = nom;
+        }
+
+        public void genereXml(XmlDocument xmlDoc)
+        {
+            XmlNode nodeMission = xmlDoc.CreateElement("Mission");
+            xmlDoc.AppendChild(nodeMission);
+
+            // durée mission
+            XmlNode nodeDuree = xmlDoc.CreateElement("Duree");
+            nodeDuree.InnerText = Durée.ToString();
+            nodeMission.AppendChild(nodeDuree);
+
+            // nom mission
+            XmlNode nodeNom = xmlDoc.CreateElement("Nom");
+            nodeNom.InnerText = nom;
+            nodeMission.AppendChild(nodeNom);
+
+            // Carte mission
+            XmlNode nodeCarte = xmlDoc.CreateElement("Carte");
+            nodeCarte.InnerText = carte;
+            nodeMission.AppendChild(nodeCarte);
+
+            // Jours
+
+            XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
+
+            /*  
+            foreach (Jour j in jours)
+            {
+                j.genereXml(xmlDoc, NodeListeJours);
+            }
+             */
+
+            nodeMission.AppendChild(nodeListeJours);
+
+        }
     }
 }

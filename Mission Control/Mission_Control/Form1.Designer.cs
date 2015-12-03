@@ -36,25 +36,27 @@
             this.jourSuiv = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelLieu = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelHeureFin = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelHeureDebut = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.LabelLibelleActivitee = new System.Windows.Forms.Label();
             this.LabelCategorieActivitee = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTempsLocal = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelHeureDebut = new System.Windows.Forms.Label();
-            this.labelHeureFin = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.labelLieu = new System.Windows.Forms.Label();
+            this.sauvegarderMission = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chargerMission
             // 
-            this.chargerMission.Location = new System.Drawing.Point(12, 14);
+            this.chargerMission.Location = new System.Drawing.Point(12, 23);
             this.chargerMission.Name = "chargerMission";
-            this.chargerMission.Size = new System.Drawing.Size(108, 23);
+            this.chargerMission.Size = new System.Drawing.Size(130, 23);
             this.chargerMission.TabIndex = 0;
             this.chargerMission.Text = "Charger mission";
             this.chargerMission.UseVisualStyleBackColor = true;
@@ -67,11 +69,10 @@
             this.AfficheJours.Size = new System.Drawing.Size(121, 392);
             this.AfficheJours.TabIndex = 1;
             this.AfficheJours.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfficheJours_AfterSelect);
-            this.AfficheJours.EnabledChanged += new System.EventHandler(this.AfficheJours_EnabledChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 43);
+            this.button1.Location = new System.Drawing.Point(12, 101);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 23);
             this.button1.TabIndex = 2;
@@ -135,7 +136,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Détails de l\'activitée";
             this.groupBox1.Visible = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // labelLieu
+            // 
+            this.labelLieu.AutoSize = true;
+            this.labelLieu.Location = new System.Drawing.Point(84, 89);
+            this.labelLieu.Name = "labelLieu";
+            this.labelLieu.Size = new System.Drawing.Size(35, 13);
+            this.labelLieu.TabIndex = 9;
+            this.labelLieu.Text = "label5";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(45, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Lieu :";
+            // 
+            // labelHeureFin
+            // 
+            this.labelHeureFin.AutoSize = true;
+            this.labelHeureFin.Location = new System.Drawing.Point(261, 61);
+            this.labelHeureFin.Name = "labelHeureFin";
+            this.labelHeureFin.Size = new System.Drawing.Size(35, 13);
+            this.labelHeureFin.TabIndex = 7;
+            this.labelHeureFin.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(189, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Heure fin :";
+            // 
+            // labelHeureDebut
+            // 
+            this.labelHeureDebut.AutoSize = true;
+            this.labelHeureDebut.Location = new System.Drawing.Point(261, 35);
+            this.labelHeureDebut.Name = "labelHeureDebut";
+            this.labelHeureDebut.Size = new System.Drawing.Size(35, 13);
+            this.labelHeureDebut.TabIndex = 5;
+            this.labelHeureDebut.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(189, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Heure début :";
             // 
             // LabelLibelleActivitee
             // 
@@ -172,78 +226,32 @@
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Categorie :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelTempsLocal
             // 
             this.labelTempsLocal.AutoSize = true;
-            this.labelTempsLocal.Location = new System.Drawing.Point(12, 86);
+            this.labelTempsLocal.Location = new System.Drawing.Point(12, 127);
             this.labelTempsLocal.Name = "labelTempsLocal";
             this.labelTempsLocal.Size = new System.Drawing.Size(35, 13);
             this.labelTempsLocal.TabIndex = 8;
             this.labelTempsLocal.Text = "label3";
-            this.labelTempsLocal.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label3
+            // sauvegarderMission
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(189, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Heure début :";
-            // 
-            // labelHeureDebut
-            // 
-            this.labelHeureDebut.AutoSize = true;
-            this.labelHeureDebut.Location = new System.Drawing.Point(261, 35);
-            this.labelHeureDebut.Name = "labelHeureDebut";
-            this.labelHeureDebut.Size = new System.Drawing.Size(35, 13);
-            this.labelHeureDebut.TabIndex = 5;
-            this.labelHeureDebut.Text = "label4";
-            // 
-            // labelHeureFin
-            // 
-            this.labelHeureFin.AutoSize = true;
-            this.labelHeureFin.Location = new System.Drawing.Point(261, 61);
-            this.labelHeureFin.Name = "labelHeureFin";
-            this.labelHeureFin.Size = new System.Drawing.Size(35, 13);
-            this.labelHeureFin.TabIndex = 7;
-            this.labelHeureFin.Text = "label5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(189, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Heure fin :";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(45, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Lieu :";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // labelLieu
-            // 
-            this.labelLieu.AutoSize = true;
-            this.labelLieu.Location = new System.Drawing.Point(84, 89);
-            this.labelLieu.Name = "labelLieu";
-            this.labelLieu.Size = new System.Drawing.Size(35, 13);
-            this.labelLieu.TabIndex = 9;
-            this.labelLieu.Text = "label5";
+            this.sauvegarderMission.Location = new System.Drawing.Point(12, 52);
+            this.sauvegarderMission.Name = "sauvegarderMission";
+            this.sauvegarderMission.Size = new System.Drawing.Size(130, 23);
+            this.sauvegarderMission.TabIndex = 9;
+            this.sauvegarderMission.Text = "Sauvegader mission";
+            this.sauvegarderMission.UseVisualStyleBackColor = true;
+            this.sauvegarderMission.Click += new System.EventHandler(this.sauvegarderMission_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.sauvegarderMission);
             this.Controls.Add(this.labelTempsLocal);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
@@ -255,6 +263,7 @@
             this.Controls.Add(this.chargerMission);
             this.Name = "Form1";
             this.Text = "Controle de mission";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -283,6 +292,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label labelLieu;
+        private System.Windows.Forms.Button sauvegarderMission;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
