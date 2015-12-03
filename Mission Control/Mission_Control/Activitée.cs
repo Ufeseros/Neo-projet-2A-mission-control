@@ -99,15 +99,17 @@ namespace Mission_Control
             nodeNumJour.InnerText = numJour.ToString();
             nodeActivitee.AppendChild(nodeNumJour);
 
-            // lieu.genereXml
+            lieu.genereXml(xmlDoc, nodeActivitee);
 
             XmlNode nodeListeAstronaute = xmlDoc.CreateElement("ListeAstronaute");
+
             /*          
             foreach (Astronaute as in paritcipants)
             {
                 as.genereXml(xmlDoc, NodeListeJours);
             }
             */
+
             nodeActivitee.AppendChild(nodeListeAstronaute);
             rootNode.AppendChild(nodeActivitee);
         }

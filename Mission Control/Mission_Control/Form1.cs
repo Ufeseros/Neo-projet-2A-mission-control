@@ -49,7 +49,7 @@ namespace Mission_Control
 
             foreach (Activitée a in j.getActivitées())
             {
-                node = new TreeNode(a.getLibelle());
+                node = new TreeNode(conversionHeure(a.getDebut())+" "+a.getLibelle());
                 node.Tag = a;
                 AfficheActivitée.Nodes.Add(node);
  
@@ -133,7 +133,6 @@ namespace Mission_Control
 
         private void chargerMission_Click(object sender, EventArgs e)
         {
-            
             refreshJours();
         }
 
