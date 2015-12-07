@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategorie = new System.Windows.Forms.ComboBox();
+            this.comboBoxLibelle = new System.Windows.Forms.ComboBox();
+            this.comboBoxHD = new System.Windows.Forms.ComboBox();
+            this.comboBoxHF = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
@@ -42,41 +42,41 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // comboBoxCategorie
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(70, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.Text = "categorie";
+            this.comboBoxCategorie.FormattingEnabled = true;
+            this.comboBoxCategorie.Location = new System.Drawing.Point(70, 124);
+            this.comboBoxCategorie.Name = "comboBoxCategorie";
+            this.comboBoxCategorie.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCategorie.TabIndex = 0;
+            this.comboBoxCategorie.Text = "categorie";
             // 
-            // comboBox2
+            // comboBoxLibelle
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(244, 123);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
-            this.comboBox2.Text = "libelle";
+            this.comboBoxLibelle.FormattingEnabled = true;
+            this.comboBoxLibelle.Location = new System.Drawing.Point(244, 123);
+            this.comboBoxLibelle.Name = "comboBoxLibelle";
+            this.comboBoxLibelle.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxLibelle.TabIndex = 1;
+            this.comboBoxLibelle.Text = "libelle";
             // 
-            // comboBox3
+            // comboBoxHD
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(70, 151);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 2;
-            this.comboBox3.Text = "heure début";
+            this.comboBoxHD.FormattingEnabled = true;
+            this.comboBoxHD.Location = new System.Drawing.Point(70, 151);
+            this.comboBoxHD.Name = "comboBoxHD";
+            this.comboBoxHD.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHD.TabIndex = 2;
+            this.comboBoxHD.Text = "heure début";
             // 
-            // comboBox4
+            // comboBoxHF
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(244, 151);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 3;
-            this.comboBox4.Text = "heure fin";
+            this.comboBoxHF.FormattingEnabled = true;
+            this.comboBoxHF.Location = new System.Drawing.Point(244, 151);
+            this.comboBoxHF.Name = "comboBoxHF";
+            this.comboBoxHF.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxHF.TabIndex = 3;
+            this.comboBoxHF.Text = "heure fin";
             // 
             // pictureBox1
             // 
@@ -87,7 +87,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_DoubleClick);
             // 
             // label1
             // 
@@ -158,10 +158,10 @@
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxHF);
+            this.Controls.Add(this.comboBoxHD);
+            this.Controls.Add(this.comboBoxLibelle);
+            this.Controls.Add(this.comboBoxCategorie);
             this.Name = "FormAjoutActivite";
             this.Text = "FormAjoutActivite";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -172,10 +172,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBoxCategorie;
+        private System.Windows.Forms.ComboBox comboBoxLibelle;
+        private System.Windows.Forms.ComboBox comboBoxHD;
+        private System.Windows.Forms.ComboBox comboBoxHF;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox5;

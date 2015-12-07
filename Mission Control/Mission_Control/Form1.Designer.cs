@@ -34,7 +34,7 @@
             this.AfficheActivitée = new System.Windows.Forms.TreeView();
             this.jourPrec = new System.Windows.Forms.Button();
             this.jourSuiv = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.boutonAjoutActivitée = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelLieu = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,8 +54,9 @@
             this.ajouterAstronaute = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
             this.confirmationAjoutAstronaute = new System.Windows.Forms.Button();
+            this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -116,14 +117,15 @@
             this.jourSuiv.UseVisualStyleBackColor = true;
             this.jourSuiv.Click += new System.EventHandler(this.jourSuiv_Click);
             // 
-            // button4
+            // boutonAjoutActivitée
             // 
-            this.button4.Location = new System.Drawing.Point(517, 146);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.boutonAjoutActivitée.Location = new System.Drawing.Point(446, 146);
+            this.boutonAjoutActivitée.Name = "boutonAjoutActivitée";
+            this.boutonAjoutActivitée.Size = new System.Drawing.Size(121, 23);
+            this.boutonAjoutActivitée.TabIndex = 6;
+            this.boutonAjoutActivitée.Text = "Ajouter une activitée";
+            this.boutonAjoutActivitée.UseVisualStyleBackColor = true;
+            this.boutonAjoutActivitée.Click += new System.EventHandler(this.boutonAjoutActivitée_Click);
             // 
             // groupBox1
             // 
@@ -298,15 +300,8 @@
             this.groupBox2.Size = new System.Drawing.Size(159, 81);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "nom de l\'astronaute";
             this.groupBox2.Visible = false;
-            // 
-            // textBoxAjoutAstronaute
-            // 
-            this.textBoxAjoutAstronaute.Location = new System.Drawing.Point(6, 19);
-            this.textBoxAjoutAstronaute.Name = "textBoxAjoutAstronaute";
-            this.textBoxAjoutAstronaute.Size = new System.Drawing.Size(147, 20);
-            this.textBoxAjoutAstronaute.TabIndex = 0;
             // 
             // confirmationAjoutAstronaute
             // 
@@ -318,11 +313,28 @@
             this.confirmationAjoutAstronaute.UseVisualStyleBackColor = true;
             this.confirmationAjoutAstronaute.Click += new System.EventHandler(this.confirmationAjoutAstronaute_Click);
             // 
+            // textBoxAjoutAstronaute
+            // 
+            this.textBoxAjoutAstronaute.Location = new System.Drawing.Point(6, 19);
+            this.textBoxAjoutAstronaute.Name = "textBoxAjoutAstronaute";
+            this.textBoxAjoutAstronaute.Size = new System.Drawing.Size(147, 20);
+            this.textBoxAjoutAstronaute.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(573, 146);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Suprimer l\'activitée";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.ajouterAstronaute);
@@ -331,7 +343,7 @@
             this.Controls.Add(this.sauvegarderMission);
             this.Controls.Add(this.labelTempsLocal);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.boutonAjoutActivitée);
             this.Controls.Add(this.jourSuiv);
             this.Controls.Add(this.jourPrec);
             this.Controls.Add(this.AfficheActivitée);
@@ -358,7 +370,7 @@
         private System.Windows.Forms.TreeView AfficheActivitée;
         private System.Windows.Forms.Button jourPrec;
         private System.Windows.Forms.Button jourSuiv;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button boutonAjoutActivitée;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -380,6 +392,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button confirmationAjoutAstronaute;
         private System.Windows.Forms.TextBox textBoxAjoutAstronaute;
+        private System.Windows.Forms.Button button2;
     }
 }
 

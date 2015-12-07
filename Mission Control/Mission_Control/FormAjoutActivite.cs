@@ -12,10 +12,18 @@ namespace Mission_Control
     public partial class FormAjoutActivite : Form
     {
         Activitée acti_temp = new Activitée();
+        List<string> listeDesCategories;
+        List<string> listeDesLibelle;
+
         public FormAjoutActivite()
         {
-            
             InitializeComponent();
+
+            foreach (string s in valeursListes.listeCategories)
+            {
+                comboBoxCategorie.Items.Add(s);
+            }
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,7 +46,6 @@ namespace Mission_Control
             acti_temp.setCoord(e.X, e.Y);
             Lieu monLieu=acti_temp.getLieu();
             label2.Text=monLieu.ToString();
-
         }
     }
 }

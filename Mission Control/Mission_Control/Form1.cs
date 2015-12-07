@@ -134,8 +134,6 @@ namespace Mission_Control
             {
                 AfficheJours.SelectedNode = AfficheJours.SelectedNode.NextNode;
 
-                int num = int.Parse(AfficheJours.SelectedNode.Text);
-
                 Jour j = (Jour)AfficheJours.SelectedNode.Tag;
                 refreshActivitée(j);
                 
@@ -183,6 +181,12 @@ namespace Mission_Control
             M.addAstronaute(textBoxAjoutAstronaute.Text);
             refreshAstronautes();
             groupBox2.Visible = false;
+        }
+
+        private void boutonAjoutActivitée_Click(object sender, EventArgs e)
+        {
+            Form nouvelleActivitee = new FormAjoutActivite();
+            nouvelleActivitee.Show();
         }
     }
 }
