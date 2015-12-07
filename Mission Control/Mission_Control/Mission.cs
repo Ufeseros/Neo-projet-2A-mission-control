@@ -9,7 +9,6 @@ namespace Mission_Control
 {
     class Mission
     {
-
         private int Durée;
         private string carte;
         private string nom;
@@ -95,6 +94,12 @@ namespace Mission_Control
 
             XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
 
+            // temps Mission
+
+            XmlNode nodeTemps = xmlDoc.CreateElement("Temps");
+            nodeTemps.InnerText = TempsMission.ToString();
+            nodeMission.AppendChild(nodeTemps);
+
            
             foreach (Jour j in jours)
             {
@@ -104,6 +109,36 @@ namespace Mission_Control
 
             nodeMission.AppendChild(nodeListeJours);
 
+        }
+
+        public void chargerXml(XmlDocument xmlDoc )
+        {
+
+     // on recupere une liste de noeud "Mission"
+                 XmlNodeList nodelistMissions =  xmlDoc.GetElementsByTagName("Mission");
+                 foreach (XmlNode nodeMission in nodelistMissions)
+                 {
+                     int duree_mission = int.Parse(nodeMission.SelectSingleNode("Duree").InnerText);
+                     this.Durée = duree_mission;
+
+                     string nom_mission = nodeMission.SelectSingleNode("Nom").InnerText;
+                     this.nom = nom_mission;
+
+                     string carte_mission = nodeMission.SelectSingleNode("Carte").InnerText;
+                     this.carte = carte_mission;
+
+                     int temps_mission = int.Parse(nodeMission.SelectSingleNode("Temps").InnerText);
+                     this.TempsMission = temps_mission;
+
+                     // TO DO : 
+                     // Modification du temps mission selon le temps ou l'application n'as pas été allumée
+                     // il faudra garder la date de la derniere save et comparer avec le temps local
+
+                     // Jour.chargerXml ; 
+
+
+                 }
+        
         }
     }
 }

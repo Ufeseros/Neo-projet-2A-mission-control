@@ -5,7 +5,6 @@ using System.Text;
 using System.Xml.Serialization;
 using System.Xml;
 
-
 namespace Mission_Control
 {
     class Lieu
