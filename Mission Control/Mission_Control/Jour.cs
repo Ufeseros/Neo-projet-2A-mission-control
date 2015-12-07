@@ -28,7 +28,7 @@ namespace Mission_Control
             activitées.Add(a);
             a = new Activitée("Living", "Private", 840, 1140, this.num);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating", 1440, 1260, this.num);
+            a = new Activitée("Living", "Eating", 1140, 1260, this.num);
             activitées.Add(a);
             a = new Activitée("Living", "Private", 1260, 1380, this.num);
             activitées.Add(a);
@@ -71,6 +71,5 @@ namespace Mission_Control
             nodeJour.AppendChild(nodeListeActivitee);
             rootNode.AppendChild(nodeJour);
         }
-
     }
 }

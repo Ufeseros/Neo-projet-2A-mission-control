@@ -9,11 +9,13 @@ namespace Mission_Control
 {
     class Mission
     {
+
         private int Durée;
         private string carte;
         private string nom;
         private List<Jour> jours;
         private List<Astronaute> astronautes;
+        private int TempsMission;
 
         public Mission(int Durée, string carte, string nom)
         {
@@ -26,6 +28,8 @@ namespace Mission_Control
             {
                 jours.Add(new Jour(i));
             }
+
+            TempsMission = 88780;
         }
 
         public List<Jour> getJours(){
@@ -50,6 +54,16 @@ namespace Mission_Control
         public void addAstronaute(string nom)
         {
            astronautes.Add(new Astronaute(nom));
+        }
+
+        public void incrTemps()
+        {
+            TempsMission++;
+        }
+
+        public int getTemps()
+        {
+            return TempsMission;
         }
 
         public List<Astronaute> getAstronautes()

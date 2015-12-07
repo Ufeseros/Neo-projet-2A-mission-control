@@ -57,6 +57,7 @@
             this.confirmationAjoutAstronaute = new System.Windows.Forms.Button();
             this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.labelTempsLocalMars = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -242,9 +243,9 @@
             this.labelTempsLocal.AutoSize = true;
             this.labelTempsLocal.Location = new System.Drawing.Point(12, 127);
             this.labelTempsLocal.Name = "labelTempsLocal";
-            this.labelTempsLocal.Size = new System.Drawing.Size(35, 13);
+            this.labelTempsLocal.Size = new System.Drawing.Size(59, 13);
             this.labelTempsLocal.TabIndex = 8;
-            this.labelTempsLocal.Text = "label3";
+            this.labelTempsLocal.Text = "temps terre";
             // 
             // sauvegarderMission
             // 
@@ -329,11 +330,21 @@
             this.button2.Text = "Suprimer l\'activitée";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // labelTempsLocalMars
+            // 
+            this.labelTempsLocalMars.AutoSize = true;
+            this.labelTempsLocalMars.Location = new System.Drawing.Point(12, 156);
+            this.labelTempsLocalMars.Name = "labelTempsLocalMars";
+            this.labelTempsLocalMars.Size = new System.Drawing.Size(60, 13);
+            this.labelTempsLocalMars.TabIndex = 16;
+            this.labelTempsLocalMars.Text = "temps mars";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.labelTempsLocalMars);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button3);
@@ -393,6 +404,7 @@
         private System.Windows.Forms.Button confirmationAjoutAstronaute;
         private System.Windows.Forms.TextBox textBoxAjoutAstronaute;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label labelTempsLocalMars;
     }
 }
 

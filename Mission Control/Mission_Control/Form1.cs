@@ -15,15 +15,18 @@ namespace Mission_Control
     public partial class Form1 : Form
     {
         Mission M = new Mission(500, "images/nanedi valles.jpg", "Default");
-        Timer tempsLocalTerre = new Timer();
+        Timer temps = new Timer();
         XmlDocument xmlDoc = new XmlDocument();
 
         public Form1()
         {
             InitializeComponent();
-            tempsLocalTerre.Tick += (s, e) => {labelTempsLocal.Text = DateTime.Now.ToString(); };
-            tempsLocalTerre.Interval = 333;
-            tempsLocalTerre.Start();
+            temps.Tick += (s, e) => { labelTempsLocal.Text = DateTime.Now.ToString();
+                                      M.incrTemps();
+                                      labelTempsLocalMars.Text = ConversionTempsLocalMars(M.getTemps());                                 
+                                                                                    };
+            temps.Interval = 1000;
+            temps.Start();
         }
 
         private void refreshJours()
@@ -36,6 +39,8 @@ namespace Mission_Control
             {
                 node = new TreeNode("Jour " + (j.getNum()).ToString());
                 node.Tag = j;
+                node.BackColor = Color.Blue;
+                node.ForeColor = Color.White;
                 AfficheJours.Nodes.Add(node);
             }
         }
@@ -110,8 +115,19 @@ namespace Mission_Control
                 result = heures + "h" + minutes;
 
             return result;
-
         }
+
+        private string ConversionTempsLocalMars(int temps)
+        {
+            int jours = (int)Math.Truncate((double)temps / 88800);
+            int minutes = (temps - jours * 88800) / 60;
+            int sec = temps - jours * 88800 - minutes * 60;
+
+            if(sec>10)
+            return "Day " + (jours+1) + " - " + conversionHeure(minutes) +":" + sec;
+            else
+            return "Day " + (jours + 1) + " - " + conversionHeure(minutes) + ":0" + sec;        
+            }
 
 
 

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace Mission_Control
 {
@@ -16,6 +18,12 @@ namespace Mission_Control
 
         public string getNom(){
         return nom;
+        }
+
+
+        public void genereXml(XmlDocument xmlDoc, XmlNode rootNode)
+        {
+
         }
     }
 }
