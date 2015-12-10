@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Mission
+    public class Mission
     {
         private int Durée;
         private string carte;

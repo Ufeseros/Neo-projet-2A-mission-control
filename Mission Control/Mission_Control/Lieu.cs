@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Lieu
+    public class Lieu
     {
         private int x;
         private int y;

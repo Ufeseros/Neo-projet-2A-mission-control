@@ -29,6 +29,11 @@ namespace Mission_Control
             temps.Start();
         }
 
+        public Mission getMission()
+        {
+            return M;
+        }
+
         private void refreshJours()
         {
             AfficheJours.Nodes.Clear();
@@ -201,7 +206,7 @@ namespace Mission_Control
 
         private void boutonAjoutActivitée_Click(object sender, EventArgs e)
         {
-            Form nouvelleActivitee = new FormAjoutActivite();
+            Form nouvelleActivitee = new FormAjoutActivite(this);
             nouvelleActivitee.Show();
         }
     }

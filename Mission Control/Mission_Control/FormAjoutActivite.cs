@@ -14,42 +14,32 @@ namespace Mission_Control
         Activitée acti_temp = new Activitée();
         List<string> listeDesCategories;
         List<string> listeDesLibelle;
+        Form1 Parent;
 
-        public FormAjoutActivite()
+
+        public FormAjoutActivite(Form1 Parent)
         {
             InitializeComponent();
-
+            this.Parent = Parent;
 
             foreach (string s in valeursListes.listeCategories)
             {
                 comboBoxCategorie.Items.Add(s);
             }
-
-
-
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
         {
-
             acti_temp.setCoord(e.X, e.Y);
             Lieu monLieu=acti_temp.getLieu();
             label2.Text=monLieu.ToString();
+        }
+
+        private void buttonValider_Click(object sender, EventArgs e)
+        {
+            // ici traitement d'ajout d'activitée
         }      
     }
 }

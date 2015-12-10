@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Jour
+    public class Jour
     {
         int num;
         List<Activitée> activitées;

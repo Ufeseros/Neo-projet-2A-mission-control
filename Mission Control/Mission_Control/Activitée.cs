@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Activitée
+    public class Activitée
     {
         private string categorie;
         private string libelle;

@@ -36,7 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonValider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -98,7 +98,6 @@
             this.label1.Size = new System.Drawing.Size(268, 31);
             this.label1.TabIndex = 5;
             this.label1.Text = "Ajouter une Activité";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // comboBox5
             // 
@@ -117,15 +116,15 @@
             this.checkedListBox1.Size = new System.Drawing.Size(297, 229);
             this.checkedListBox1.TabIndex = 7;
             // 
-            // button1
+            // buttonValider
             // 
-            this.button1.Location = new System.Drawing.Point(70, 471);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 45);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Valider";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonValider.Location = new System.Drawing.Point(70, 471);
+            this.buttonValider.Name = "buttonValider";
+            this.buttonValider.Size = new System.Drawing.Size(121, 45);
+            this.buttonValider.TabIndex = 8;
+            this.buttonValider.Text = "Valider";
+            this.buttonValider.UseVisualStyleBackColor = true;
+            this.buttonValider.Click += new System.EventHandler(this.buttonValider_Click);
             // 
             // button2
             // 
@@ -144,7 +143,6 @@
             this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Coordonnées : ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // FormAjoutActivite
             // 
@@ -153,7 +151,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 682);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.label1);
@@ -180,7 +178,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
     }
