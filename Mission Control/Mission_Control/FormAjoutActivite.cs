@@ -30,6 +30,9 @@ namespace Mission_Control
 
 
 
+
+
+
         private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
         {
             acti_temp.setCoord(e.X, e.Y);
@@ -40,6 +43,57 @@ namespace Mission_Control
         private void buttonValider_Click(object sender, EventArgs e)
         {
             // ici traitement d'ajout d'activitée
-        }      
+        }
+
+        private void comboBoxCategorie_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+            switch (comboBoxCategorie.SelectedItem.ToString())
+            {
+                case "Living":
+                    comboBoxLibelle.Items.Clear();
+                    foreach (string s in valeursListes.listeLibelleLiving)
+                    {
+                        comboBoxLibelle.Items.Add(s);
+                    }
+                break;
+                case "Science":
+                    comboBoxLibelle.Items.Clear();
+                    foreach (string s in valeursListes.listeLibelleScience)
+                    {
+                        comboBoxLibelle.Items.Add(s);
+                    }
+                break;
+                case "Maintenance":
+                    comboBoxLibelle.Items.Clear();
+                    foreach (string s in valeursListes.listeLibelleMaintenance)
+                    {
+                        comboBoxLibelle.Items.Add(s);
+                    }
+                break;
+                case "Communication":
+                    comboBoxLibelle.Items.Clear();
+                    foreach (string s in valeursListes.listeLibelleCommunication)
+                    {
+                        comboBoxLibelle.Items.Add(s);
+                    }
+                break;
+                case "Repair":
+                    comboBoxLibelle.Items.Clear();
+                    foreach (string s in valeursListes.listeLibelleRepair)
+                    {
+                        comboBoxLibelle.Items.Add(s);
+                    }
+                break;
+                case "Emergency":
+                    comboBoxLibelle.Items.Clear();
+                    foreach (string s in valeursListes.listeLibelleEmergency)
+                    {
+                        comboBoxLibelle.Items.Add(s);
+                    }
+                break;
+            }
+        }
+
     }
 }

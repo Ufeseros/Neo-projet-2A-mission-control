@@ -34,49 +34,54 @@
             this.comboBoxHF = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.labelTest = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxCategorie
             // 
+            this.comboBoxCategorie.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategorie.FormattingEnabled = true;
             this.comboBoxCategorie.Location = new System.Drawing.Point(70, 124);
             this.comboBoxCategorie.Name = "comboBoxCategorie";
             this.comboBoxCategorie.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCategorie.TabIndex = 0;
-            this.comboBoxCategorie.Text = "categorie";
+            this.comboBoxCategorie.SelectionChangeCommitted += new System.EventHandler(this.comboBoxCategorie_SelectionChangeCommitted);
             // 
             // comboBoxLibelle
             // 
+            this.comboBoxLibelle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLibelle.FormattingEnabled = true;
-            this.comboBoxLibelle.Location = new System.Drawing.Point(244, 123);
+            this.comboBoxLibelle.Location = new System.Drawing.Point(255, 124);
             this.comboBoxLibelle.Name = "comboBoxLibelle";
             this.comboBoxLibelle.Size = new System.Drawing.Size(121, 21);
             this.comboBoxLibelle.TabIndex = 1;
-            this.comboBoxLibelle.Text = "libelle";
             // 
             // comboBoxHD
             // 
+            this.comboBoxHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHD.FormattingEnabled = true;
             this.comboBoxHD.Location = new System.Drawing.Point(70, 151);
             this.comboBoxHD.Name = "comboBoxHD";
             this.comboBoxHD.Size = new System.Drawing.Size(121, 21);
             this.comboBoxHD.TabIndex = 2;
-            this.comboBoxHD.Text = "heure début";
             // 
             // comboBoxHF
             // 
+            this.comboBoxHF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxHF.FormattingEnabled = true;
-            this.comboBoxHF.Location = new System.Drawing.Point(244, 151);
+            this.comboBoxHF.Location = new System.Drawing.Point(255, 151);
             this.comboBoxHF.Name = "comboBoxHF";
             this.comboBoxHF.Size = new System.Drawing.Size(121, 21);
             this.comboBoxHF.TabIndex = 3;
-            this.comboBoxHF.Text = "heure fin";
             // 
             // pictureBox1
             // 
@@ -98,15 +103,6 @@
             this.label1.Size = new System.Drawing.Size(268, 31);
             this.label1.TabIndex = 5;
             this.label1.Text = "Ajouter une Activité";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(70, 97);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(121, 21);
-            this.comboBox5.TabIndex = 6;
-            this.comboBox5.Text = "Jour";
             // 
             // checkedListBox1
             // 
@@ -144,16 +140,65 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Coordonnées : ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Cattegorie";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(212, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Libelle";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(199, 154);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "HeureFin";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(-1, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "HeureDebut";
+            // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(117, 84);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(50, 13);
+            this.labelTest.TabIndex = 15;
+            this.labelTest.Text = "labelTest";
+            // 
             // FormAjoutActivite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 682);
+            this.Controls.Add(this.labelTest);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonValider);
             this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxHF);
@@ -176,10 +221,14 @@
         private System.Windows.Forms.ComboBox comboBoxHF;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelTest;
     }
 }

@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Astronaute
+    public class Astronaute
     {
         private string nom;
 
