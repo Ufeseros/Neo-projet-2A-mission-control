@@ -30,8 +30,8 @@
         {
             this.comboBoxCategorie = new System.Windows.Forms.ComboBox();
             this.comboBoxLibelle = new System.Windows.Forms.ComboBox();
-            this.comboBoxHD = new System.Windows.Forms.ComboBox();
-            this.comboBoxHF = new System.Windows.Forms.ComboBox();
+            this.comboBoxHD_H = new System.Windows.Forms.ComboBox();
+            this.comboBoxHF_H = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
@@ -42,7 +42,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelTest = new System.Windows.Forms.Label();
+            this.comboBoxHF_M = new System.Windows.Forms.ComboBox();
+            this.comboBoxHD_M = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,23 +66,25 @@
             this.comboBoxLibelle.Size = new System.Drawing.Size(121, 21);
             this.comboBoxLibelle.TabIndex = 1;
             // 
-            // comboBoxHD
+            // comboBoxHD_H
             // 
-            this.comboBoxHD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHD.FormattingEnabled = true;
-            this.comboBoxHD.Location = new System.Drawing.Point(70, 151);
-            this.comboBoxHD.Name = "comboBoxHD";
-            this.comboBoxHD.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxHD.TabIndex = 2;
+            this.comboBoxHD_H.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHD_H.FormattingEnabled = true;
+            this.comboBoxHD_H.Location = new System.Drawing.Point(70, 151);
+            this.comboBoxHD_H.Name = "comboBoxHD_H";
+            this.comboBoxHD_H.Size = new System.Drawing.Size(50, 21);
+            this.comboBoxHD_H.TabIndex = 2;
+            this.comboBoxHD_H.SelectedIndexChanged += new System.EventHandler(this.afterHours_Select_D);
             // 
-            // comboBoxHF
+            // comboBoxHF_H
             // 
-            this.comboBoxHF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxHF.FormattingEnabled = true;
-            this.comboBoxHF.Location = new System.Drawing.Point(255, 151);
-            this.comboBoxHF.Name = "comboBoxHF";
-            this.comboBoxHF.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxHF.TabIndex = 3;
+            this.comboBoxHF_H.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHF_H.FormattingEnabled = true;
+            this.comboBoxHF_H.Location = new System.Drawing.Point(255, 151);
+            this.comboBoxHF_H.Name = "comboBoxHF_H";
+            this.comboBoxHF_H.Size = new System.Drawing.Size(47, 21);
+            this.comboBoxHF_H.TabIndex = 3;
+            this.comboBoxHF_H.SelectedIndexChanged += new System.EventHandler(this.afterHours_Select_F);
             // 
             // pictureBox1
             // 
@@ -176,21 +179,31 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "HeureDebut";
             // 
-            // labelTest
+            // comboBoxHF_M
             // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(117, 84);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(50, 13);
-            this.labelTest.TabIndex = 15;
-            this.labelTest.Text = "labelTest";
+            this.comboBoxHF_M.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHF_M.FormattingEnabled = true;
+            this.comboBoxHF_M.Location = new System.Drawing.Point(326, 151);
+            this.comboBoxHF_M.Name = "comboBoxHF_M";
+            this.comboBoxHF_M.Size = new System.Drawing.Size(50, 21);
+            this.comboBoxHF_M.TabIndex = 15;
+            // 
+            // comboBoxHD_M
+            // 
+            this.comboBoxHD_M.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHD_M.FormattingEnabled = true;
+            this.comboBoxHD_M.Location = new System.Drawing.Point(141, 151);
+            this.comboBoxHD_M.Name = "comboBoxHD_M";
+            this.comboBoxHD_M.Size = new System.Drawing.Size(50, 21);
+            this.comboBoxHD_M.TabIndex = 16;
             // 
             // FormAjoutActivite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 682);
-            this.Controls.Add(this.labelTest);
+            this.Controls.Add(this.comboBoxHD_M);
+            this.Controls.Add(this.comboBoxHF_M);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -201,8 +214,8 @@
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBoxHF);
-            this.Controls.Add(this.comboBoxHD);
+            this.Controls.Add(this.comboBoxHF_H);
+            this.Controls.Add(this.comboBoxHD_H);
             this.Controls.Add(this.comboBoxLibelle);
             this.Controls.Add(this.comboBoxCategorie);
             this.Name = "FormAjoutActivite";
@@ -217,8 +230,8 @@
 
         private System.Windows.Forms.ComboBox comboBoxCategorie;
         private System.Windows.Forms.ComboBox comboBoxLibelle;
-        private System.Windows.Forms.ComboBox comboBoxHD;
-        private System.Windows.Forms.ComboBox comboBoxHF;
+        private System.Windows.Forms.ComboBox comboBoxHD_H;
+        private System.Windows.Forms.ComboBox comboBoxHF_H;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
@@ -229,6 +242,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label labelTest;
+        private System.Windows.Forms.ComboBox comboBoxHF_M;
+        private System.Windows.Forms.ComboBox comboBoxHD_M;
     }
 }

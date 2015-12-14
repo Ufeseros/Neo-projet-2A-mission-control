@@ -56,7 +56,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.confirmationAjoutAstronaute = new System.Windows.Forms.Button();
             this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bouttonSupprimerActivitée = new System.Windows.Forms.Button();
             this.labelTempsLocalMars = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -120,6 +120,7 @@
             // 
             // boutonAjoutActivitée
             // 
+            this.boutonAjoutActivitée.Enabled = false;
             this.boutonAjoutActivitée.Location = new System.Drawing.Point(446, 146);
             this.boutonAjoutActivitée.Name = "boutonAjoutActivitée";
             this.boutonAjoutActivitée.Size = new System.Drawing.Size(121, 23);
@@ -321,14 +322,15 @@
             this.textBoxAjoutAstronaute.Size = new System.Drawing.Size(147, 20);
             this.textBoxAjoutAstronaute.TabIndex = 0;
             // 
-            // button2
+            // bouttonSupprimerActivitée
             // 
-            this.button2.Location = new System.Drawing.Point(573, 146);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Suprimer l\'activitée";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bouttonSupprimerActivitée.Enabled = false;
+            this.bouttonSupprimerActivitée.Location = new System.Drawing.Point(573, 146);
+            this.bouttonSupprimerActivitée.Name = "bouttonSupprimerActivitée";
+            this.bouttonSupprimerActivitée.Size = new System.Drawing.Size(121, 23);
+            this.bouttonSupprimerActivitée.TabIndex = 15;
+            this.bouttonSupprimerActivitée.Text = "Suprimer l\'activitée";
+            this.bouttonSupprimerActivitée.UseVisualStyleBackColor = true;
             // 
             // labelTempsLocalMars
             // 
@@ -345,7 +347,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
             this.Controls.Add(this.labelTempsLocalMars);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.bouttonSupprimerActivitée);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.ajouterAstronaute);
@@ -403,7 +405,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button confirmationAjoutAstronaute;
         private System.Windows.Forms.TextBox textBoxAjoutAstronaute;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bouttonSupprimerActivitée;
         private System.Windows.Forms.Label labelTempsLocalMars;
     }
 }

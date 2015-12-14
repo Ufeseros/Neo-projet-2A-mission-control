@@ -84,6 +84,8 @@ namespace Mission_Control
             Jour j = (Jour)AfficheJours.SelectedNode.Tag;
 
             refreshActivitée(j);
+            boutonAjoutActivitée.Enabled = true;
+            bouttonSupprimerActivitée.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -94,6 +96,7 @@ namespace Mission_Control
 
         private void Activitee_jour_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            bouttonSupprimerActivitée.Enabled = true;
             groupBox1.Visible = true;
             Activitée a = (Activitée)AfficheActivitée.SelectedNode.Tag;
 

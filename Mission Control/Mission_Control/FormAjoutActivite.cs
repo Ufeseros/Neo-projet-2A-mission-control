@@ -26,11 +26,61 @@ namespace Mission_Control
             {
                 comboBoxCategorie.Items.Add(s);
             }
+
+            for (int i = 0; i <= 24; i++)
+            {
+                comboBoxHD_H.Items.Add(i);
+                comboBoxHF_H.Items.Add(i);
+            }
+
+            for (int i = 0; i <= 60; i++)
+            {
+                comboBoxHD_M.Items.Add(i);
+                comboBoxHF_M.Items.Add(i);
+            }
         }
 
 
+        private void afterHours_Select_D(object sender, EventArgs e)
+        {
+            comboBoxHD_M.Items.Clear();
+   
+            if (comboBoxHD_H.SelectedItem.ToString() == "24")
+            {
+                for (int i = 0; i <= 40; i++)
+                {
+                    comboBoxHD_M.Items.Add(i);
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= 60; i++)
+                {
+                    comboBoxHD_M.Items.Add(i);
+                }
+            }
+           }
 
+        private void afterHours_Select_F(object sender, EventArgs e)
+        {
 
+            comboBoxHF_M.Items.Clear();
+            if (comboBoxHF_H.SelectedItem.ToString() == "24")
+            {
+                for (int i = 0; i <= 40; i++)
+                {
+                    comboBoxHF_M.Items.Add(i);
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= 60; i++)
+                {
+                    comboBoxHF_M.Items.Add(i);
+                }
+            }
+
+        }
 
 
         private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
