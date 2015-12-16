@@ -82,6 +82,13 @@ namespace Mission_Control
 
         }
 
+        private int conversionHeureMinutes(string heure, string minutes)
+        {
+            int h = int.Parse(heure);
+            int m = int.Parse(minutes);
+
+            return 60*h + m;
+        }
 
         private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
         {
@@ -92,7 +99,11 @@ namespace Mission_Control
 
         private void buttonValider_Click(object sender, EventArgs e)
         {
-            // ici traitement d'ajout d'activitée
+
+            Parent.getJourSelectione().addActivitée(comboBoxCategorie.Text, comboBoxLibelle.Text, conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text), conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text),Parent.getJourSelectione().getNum());
+            Parent.getJourSelectione().trierActivitée();
+            Parent.refreshActivitée(Parent.getJourSelectione());
+            this.Close();
         }
 
         private void comboBoxCategorie_SelectionChangeCommitted(object sender, EventArgs e)

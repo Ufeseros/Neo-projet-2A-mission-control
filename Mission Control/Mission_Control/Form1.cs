@@ -50,7 +50,7 @@ namespace Mission_Control
             }
         }
 
-        private void refreshActivitée(Jour j)
+        public void refreshActivitée(Jour j)
         {
 
             AfficheActivitée.Nodes.Clear();
@@ -211,6 +211,11 @@ namespace Mission_Control
         {
             Form nouvelleActivitee = new FormAjoutActivite(this);
             nouvelleActivitee.Show();
+        }
+
+        public Jour getJourSelectione()
+        {
+            return (Jour)AfficheJours.SelectedNode.Tag;
         }
     }
 }

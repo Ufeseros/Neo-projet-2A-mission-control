@@ -43,6 +43,45 @@ namespace Mission_Control
 
         public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour){
             Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour);
+            activitées.Add(A);
+            trierActivitée();
+        }
+
+        //ordonne les activiée par ordre chronologique
+        public void trierActivitée()
+        {
+            List<Activitée> tmp = new List<Activitée>();
+
+            foreach (Activitée a in activitées)
+            {
+                if (tmp.Count == 0)
+                {
+                    tmp.Add(a);
+                }
+                else
+                {
+                    int i = tmp.Count -1;
+                    bool done = false;
+                    while(i >= 0 && done == false)
+                    {
+                        if(activitées[i].getDebut() > a.getDebut()){
+                            i--;
+                        }
+                        else{
+                            tmp.Insert(i, a);
+                            done = true;
+                        }
+                    }
+                }
+            }
+
+            activitées.Clear();
+
+            foreach (Activitée a in tmp)
+            {
+                activitées.Add(a);
+            }
+
         }
 
         public List<Activitée> getActivitées()
