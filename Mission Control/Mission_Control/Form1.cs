@@ -106,6 +106,8 @@ namespace Mission_Control
             boutonAjoutActivitée.Enabled = true;
             bouttonSupprimerActivitée.Enabled = false;
             groupBoxActivitée.Visible = false;
+            richTextBox1.Text = getJourSelectione().getCompteRendu();
+            labelJournum.Text = "Jour " + getJourSelectione().getNum();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -125,6 +127,15 @@ namespace Mission_Control
             labelHeureDebut.Text = conversionHeure(a.getDebut());
             labelHeureFin.Text = conversionHeure(a.getFin());
             labelLieu.Text = a.getLieu().getNom();
+
+            treeViewAstronauteActivitée.Nodes.Clear();
+            foreach (Astronaute astro in a.getListeAstronaute())
+            {
+                TreeNode node = new TreeNode(astro.getNom());
+                node.Tag = astro;
+                treeViewAstronauteActivitée.Nodes.Add(node);
+            }
+
         }
 
         private string conversionHeure(int temps)
@@ -249,6 +260,11 @@ namespace Mission_Control
         private void buttonRefreshJour_Click(object sender, EventArgs e)
         {
             refreshJours();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            getJourSelectione().setCompteRendu(richTextBox1.Text);
         }
     }
 }

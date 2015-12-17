@@ -77,7 +77,11 @@ namespace Mission_Control
         public void setLieu(Lieu lieu)
         {
             this.lieu = lieu;
-            
+        }
+
+        public List<Astronaute> getListeAstronaute()
+        {
+            return participants;
         }
 
         // generation xml

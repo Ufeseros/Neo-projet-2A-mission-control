@@ -11,6 +11,7 @@ namespace Mission_Control
     {
         int num;
         List<Activitée> activitées;
+        string compteRendu;
 
         public Jour(int num)
         {
@@ -39,6 +40,16 @@ namespace Mission_Control
         public int getNum()
         {
             return num;
+        }
+
+        public string getCompteRendu()
+        {
+            return compteRendu;
+        }
+
+        public void setCompteRendu(string compteRendu)
+        {
+            this.compteRendu = compteRendu;
         }
 
         public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour){
