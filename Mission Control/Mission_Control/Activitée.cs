@@ -74,10 +74,9 @@ namespace Mission_Control
         {
             return lieu;
         }
-        public void setCoord(int x, int y)
+        public void setLieu(Lieu lieu)
         {
-            this.lieu.setx(x);
-            this.lieu.sety(y);
+            this.lieu = lieu;
             
         }
 
