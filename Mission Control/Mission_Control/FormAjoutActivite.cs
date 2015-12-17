@@ -132,10 +132,23 @@ namespace Mission_Control
             return Parent.getMission().getCarte().getLieux()[comboBoxLieux.SelectedIndex];
         }
 
+
         private void buttonValider_Click(object sender, EventArgs e)
         {
+            acti_temp.setCategorie(comboBoxCategorie.Text);
+            acti_temp.setLibelle(comboBoxLibelle.Text);
+            acti_temp.setDebut(conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text));
+            acti_temp.setFin(conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text));
+            acti_temp.setLieu(findLieu());
 
-            Parent.getJourSelectione().addActivitée(comboBoxCategorie.Text, comboBoxLibelle.Text, conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text), conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text),Parent.getJourSelectione().getNum() , findLieu()  );
+            if (checkedListBoxAstronaute.CheckedItems.Count != 0)
+            for (int i = 0; i <= checkedListBoxAstronaute.CheckedItems.Count; i++)
+            {
+                //int j = checkedListBoxAstronaute.CheckedIndex[j];
+                acti_temp.addParticipant(Parent.getMission().getAstronautes()[i]);
+            }
+
+            Parent.getJourSelectione().addActivitée(acti_temp);
             Parent.getJourSelectione().trierActivitée();
             Parent.refreshActivitée(Parent.getJourSelectione());
             this.Close();

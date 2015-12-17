@@ -59,7 +59,11 @@ namespace Mission_Control
             activitées.Add(A);
             trierActivitée();
         }
-
+        public void addActivitée(Activitée A)
+        {
+            activitées.Add(A);
+            trierActivitée();
+        }
         public void supprimeActivitée(Activitée a)
         {
             activitées.Remove(a);

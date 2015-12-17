@@ -46,12 +46,18 @@ namespace Mission_Control
         {
             return libelle;
         }
-
+        public void setLibelle(string libelle)
+        {
+            this.libelle = libelle;
+        }
         public string getCategorie()
         {
             return categorie;
         }
-
+        public void setCategorie(string categorie)
+        {
+            this.categorie = categorie;
+        }
         public int getDebut()
         {
             return tempsdébut;
@@ -70,6 +76,16 @@ namespace Mission_Control
             this.tempsfin = tempsfin;
         }
 
+        public int getNumJour()
+        {
+            return numJour;
+        }
+
+        public void setNumJour(int numJour)
+        {
+            this.numJour=numJour;
+        }
+
         public Lieu getLieu()
         {
             return lieu;
@@ -82,6 +98,11 @@ namespace Mission_Control
         public List<Astronaute> getListeAstronaute()
         {
             return participants;
+        }
+        public void addParticipant(Astronaute astronaute)
+        {
+            participants.Add(astronaute);
+
         }
 
         // generation xml
