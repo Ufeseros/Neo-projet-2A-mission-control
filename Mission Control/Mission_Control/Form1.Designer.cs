@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.chargerMission = new System.Windows.Forms.Button();
             this.AfficheJours = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,8 +60,14 @@
             this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
             this.bouttonSupprimerActivitée = new System.Windows.Forms.Button();
             this.labelTempsLocalMars = new System.Windows.Forms.Label();
+            this.labelTest = new System.Windows.Forms.Label();
+            this.buttonRefreshJour = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.groupBoxActivitée.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chargerMission
@@ -76,7 +84,8 @@
             // 
             this.AfficheJours.Location = new System.Drawing.Point(198, 12);
             this.AfficheJours.Name = "AfficheJours";
-            this.AfficheJours.Size = new System.Drawing.Size(121, 392);
+            this.AfficheJours.Size = new System.Drawing.Size(121, 578);
+            this.AfficheJours.StateImageList = this.imageList1;
             this.AfficheJours.TabIndex = 1;
             this.AfficheJours.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfficheJours_AfterSelect);
             // 
@@ -92,7 +101,7 @@
             // 
             // AfficheActivitée
             // 
-            this.AfficheActivitée.Location = new System.Drawing.Point(349, 12);
+            this.AfficheActivitée.Location = new System.Drawing.Point(347, 12);
             this.AfficheActivitée.Name = "AfficheActivitée";
             this.AfficheActivitée.Size = new System.Drawing.Size(438, 128);
             this.AfficheActivitée.TabIndex = 3;
@@ -100,7 +109,7 @@
             // 
             // jourPrec
             // 
-            this.jourPrec.Location = new System.Drawing.Point(349, 146);
+            this.jourPrec.Location = new System.Drawing.Point(347, 146);
             this.jourPrec.Name = "jourPrec";
             this.jourPrec.Size = new System.Drawing.Size(75, 23);
             this.jourPrec.TabIndex = 4;
@@ -110,7 +119,7 @@
             // 
             // jourSuiv
             // 
-            this.jourSuiv.Location = new System.Drawing.Point(712, 146);
+            this.jourSuiv.Location = new System.Drawing.Point(710, 146);
             this.jourSuiv.Name = "jourSuiv";
             this.jourSuiv.Size = new System.Drawing.Size(75, 23);
             this.jourSuiv.TabIndex = 5;
@@ -121,7 +130,7 @@
             // boutonAjoutActivitée
             // 
             this.boutonAjoutActivitée.Enabled = false;
-            this.boutonAjoutActivitée.Location = new System.Drawing.Point(446, 146);
+            this.boutonAjoutActivitée.Location = new System.Drawing.Point(444, 146);
             this.boutonAjoutActivitée.Name = "boutonAjoutActivitée";
             this.boutonAjoutActivitée.Size = new System.Drawing.Size(121, 23);
             this.boutonAjoutActivitée.TabIndex = 6;
@@ -141,9 +150,9 @@
             this.groupBoxActivitée.Controls.Add(this.LabelCategorieActivitee);
             this.groupBoxActivitée.Controls.Add(this.label2);
             this.groupBoxActivitée.Controls.Add(this.label1);
-            this.groupBoxActivitée.Location = new System.Drawing.Point(349, 175);
+            this.groupBoxActivitée.Location = new System.Drawing.Point(347, 175);
             this.groupBoxActivitée.Name = "groupBoxActivitée";
-            this.groupBoxActivitée.Size = new System.Drawing.Size(438, 239);
+            this.groupBoxActivitée.Size = new System.Drawing.Size(438, 116);
             this.groupBoxActivitée.TabIndex = 7;
             this.groupBoxActivitée.TabStop = false;
             this.groupBoxActivitée.Text = "Détails de l\'activitée";
@@ -325,7 +334,7 @@
             // bouttonSupprimerActivitée
             // 
             this.bouttonSupprimerActivitée.Enabled = false;
-            this.bouttonSupprimerActivitée.Location = new System.Drawing.Point(573, 146);
+            this.bouttonSupprimerActivitée.Location = new System.Drawing.Point(571, 146);
             this.bouttonSupprimerActivitée.Name = "bouttonSupprimerActivitée";
             this.bouttonSupprimerActivitée.Size = new System.Drawing.Size(121, 23);
             this.bouttonSupprimerActivitée.TabIndex = 15;
@@ -342,11 +351,59 @@
             this.labelTempsLocalMars.TabIndex = 16;
             this.labelTempsLocalMars.Text = "temps mars";
             // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(49, 210);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(35, 13);
+            this.labelTest.TabIndex = 17;
+            this.labelTest.Text = "label7";
+            // 
+            // buttonRefreshJour
+            // 
+            this.buttonRefreshJour.Location = new System.Drawing.Point(189, 596);
+            this.buttonRefreshJour.Name = "buttonRefreshJour";
+            this.buttonRefreshJour.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefreshJour.TabIndex = 18;
+            this.buttonRefreshJour.Text = "refresh";
+            this.buttonRefreshJour.UseVisualStyleBackColor = true;
+            this.buttonRefreshJour.Click += new System.EventHandler(this.buttonRefreshJour_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(25, 39);
+            this.richTextBox1.MaxLength = 1000;
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(385, 234);
+            this.richTextBox1.TabIndex = 19;
+            this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Location = new System.Drawing.Point(347, 298);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(438, 292);
+            this.groupBox1.TabIndex = 20;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Compte rendu du jour";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "astronaut_256.png");
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonRefreshJour);
+            this.Controls.Add(this.labelTest);
             this.Controls.Add(this.labelTempsLocalMars);
             this.Controls.Add(this.bouttonSupprimerActivitée);
             this.Controls.Add(this.groupBox2);
@@ -371,6 +428,7 @@
             this.groupBoxActivitée.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,6 +466,11 @@
         private System.Windows.Forms.TextBox textBoxAjoutAstronaute;
         private System.Windows.Forms.Button bouttonSupprimerActivitée;
         private System.Windows.Forms.Label labelTempsLocalMars;
+        private System.Windows.Forms.Label labelTest;
+        private System.Windows.Forms.Button buttonRefreshJour;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

@@ -18,6 +18,7 @@ namespace Mission_Control
         Timer temps = new Timer();
         XmlDocument xmlDoc = new XmlDocument();
 
+
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +28,11 @@ namespace Mission_Control
                                                                                     };
             temps.Interval = 1000;
             temps.Start();
+
+
+            imageList1.Images.Add(Image.FromFile("images/astronaute.jpg"));
         }
+
 
         public Mission getMission()
         {
@@ -37,15 +42,37 @@ namespace Mission_Control
         private void refreshJours()
         {
             AfficheJours.Nodes.Clear();
-
             TreeNode node;
 
             foreach (Jour j in M.getJours())
             {
                 node = new TreeNode("Jour " + (j.getNum()).ToString());
                 node.Tag = j;
-                node.BackColor = Color.Blue;
-                node.ForeColor = Color.White;
+
+
+                if (M.getTemps() > 88800*j.getNum())
+                {
+                    node.BackColor = Color.Gray;
+                    node.ForeColor = Color.White;
+                }
+
+                else if (88800 * j.getNum() > M.getTemps() &&  M.getTemps() > 88800 * (j.getNum()-1))
+                {
+                    node.BackColor = Color.Blue;
+                    node.ForeColor = Color.White;
+                }
+
+                else if (88800 * j.getNum() > M.getTemps() )
+                {
+                    node.BackColor = Color.Green;
+                    node.ForeColor = Color.White;
+                }
+
+                if (j.contientSortie())
+                {
+                    node.StateImageIndex = 0;
+                }
+
                 AfficheJours.Nodes.Add(node);
             }
         }
@@ -81,12 +108,14 @@ namespace Mission_Control
 
         private void AfficheJours_AfterSelect(object sender, TreeViewEventArgs e)
         {
+
             Jour j = (Jour)AfficheJours.SelectedNode.Tag;
 
             refreshActivitée(j);
             boutonAjoutActivitée.Enabled = true;
             bouttonSupprimerActivitée.Enabled = false;
             groupBoxActivitée.Visible = false;
+            richTextBox1.Text = j.getCompterendu();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -226,5 +255,17 @@ namespace Mission_Control
             bouttonSupprimerActivitée.Enabled = false;
             groupBoxActivitée.Visible = false;
         }
+
+        private void buttonRefreshJour_Click(object sender, EventArgs e)
+        {
+            refreshJours();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            getJourSelectione().setCompterendu(richTextBox1.Text);
+        }
+
+
     }
 }

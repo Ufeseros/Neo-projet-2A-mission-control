@@ -11,6 +11,7 @@ namespace Mission_Control
     {
         int num;
         List<Activitée> activitées;
+        string compteRendu;
 
         public Jour(int num)
         {
@@ -41,6 +42,14 @@ namespace Mission_Control
             return num;
         }
 
+        public string getCompterendu(){
+            return compteRendu;
+        }
+        
+        public void setCompterendu(string compteRendu){
+            this.compteRendu = compteRendu;
+        }
+
         public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour){
             Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour);
             activitées.Add(A);
@@ -50,6 +59,20 @@ namespace Mission_Control
         public void supprimeActivitée(Activitée a)
         {
             activitées.Remove(a);
+        }
+
+        public bool contientSortie()
+        {
+            bool result = false;
+            foreach( Activitée a in activitées){
+
+                if( a.getLibelle() == "Exploration - space suit" || a.getLibelle() == "Exploration - vehicle" )
+                    result = true;
+
+            }
+
+
+            return result;
         }
 
         //ordonne les activiée par ordre chronologique
