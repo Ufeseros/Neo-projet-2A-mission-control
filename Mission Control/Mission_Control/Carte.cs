@@ -7,8 +7,19 @@ namespace Mission_Control
 {
     class Carte
     {
-        private double echelle;
         private string image;
-        private Lieu origine;
+        private int echelle;
+        private int pixel_x;
+        private int pixel_y;
+        private List<Lieu> liste_lieux;
+
+        //Constructeurs
+
+        public Carte(string image)
+        {
+            this.image = image;
+            echelle = 5;
+            pixel_x=
+        }
     }
 }
