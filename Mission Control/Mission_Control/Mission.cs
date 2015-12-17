@@ -16,6 +16,7 @@ namespace Mission_Control
         private List<Astronaute> astronautes;
         private int TempsMission;
 
+
         public Mission(int Durée, string carte, string nom)
         {
             this.Durée = Durée;

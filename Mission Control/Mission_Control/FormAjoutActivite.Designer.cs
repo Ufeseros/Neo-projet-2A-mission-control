@@ -34,7 +34,7 @@
             this.comboBoxHF_H = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.checkedListBoxAstronaute = new System.Windows.Forms.CheckedListBox();
             this.buttonValider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -107,13 +107,14 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Ajouter une Activité";
             // 
-            // checkedListBox1
+            // checkedListBoxAstronaute
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(68, 226);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(297, 229);
-            this.checkedListBox1.TabIndex = 7;
+            this.checkedListBoxAstronaute.FormattingEnabled = true;
+            this.checkedListBoxAstronaute.Location = new System.Drawing.Point(68, 226);
+            this.checkedListBoxAstronaute.Name = "checkedListBoxAstronaute";
+            this.checkedListBoxAstronaute.Size = new System.Drawing.Size(297, 229);
+            this.checkedListBoxAstronaute.TabIndex = 7;
+            this.checkedListBoxAstronaute.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // buttonValider
             // 
@@ -211,7 +212,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonValider);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.checkedListBoxAstronaute);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.comboBoxHF_H);
@@ -234,7 +235,7 @@
         private System.Windows.Forms.ComboBox comboBoxHF_H;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBoxAstronaute;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
