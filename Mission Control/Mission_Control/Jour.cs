@@ -60,17 +60,22 @@ namespace Mission_Control
                 }
                 else
                 {
-                    int i = tmp.Count -1;
+                    int i = tmp.Count;
                     bool done = false;
                     while(i >= 0 && done == false)
                     {
-                        if(activitées[i].getDebut() > a.getDebut()){
-                            i--;
-                        }
-                        else{
-                            tmp.Insert(i, a);
-                            done = true;
-                        }
+    
+             
+                            if (activitées[i - 1].getDebut() > a.getDebut())
+                            {
+                                i--;
+                            }
+                            else
+                            {
+                                tmp.Insert(i, a);
+                                done = true;
+                            }
+                        
                     }
                 }
             }
