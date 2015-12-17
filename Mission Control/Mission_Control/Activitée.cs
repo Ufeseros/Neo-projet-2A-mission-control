@@ -56,10 +56,18 @@ namespace Mission_Control
         {
             return tempsdébut;
         }
+        public void setDebut(int tempsdébut)
+        {
+            this.tempsdébut = tempsdébut;
+        }
 
         public int getFin()
         {
             return tempsfin;
+        }
+        public void setFin(int tempsfin)
+        {
+            this.tempsfin = tempsfin;
         }
 
         public Lieu getLieu()

@@ -12,8 +12,8 @@ namespace Mission_Control
     public partial class FormAjoutActivite : Form
     {
         Activitée acti_temp = new Activitée();
-        List<string> listeDesCategories;
-        List<string> listeDesLibelle;
+       // List<string> listeDesCategories;
+        //List<string> listeDesLibelle;
         Form1 Parent;
 
 
@@ -33,10 +33,17 @@ namespace Mission_Control
                 comboBoxHF_H.Items.Add(i);
             }
 
-            for (int i = 0; i <= 60; i++)
+            for (int i = 0; i <60; i+=10)
             {
                 comboBoxHD_M.Items.Add(i);
                 comboBoxHF_M.Items.Add(i);
+            }
+            //checkedListBoxAstronaute.DataSource = Parent.getMission().getAstronautes();
+
+
+            foreach (Astronaute a in Parent.getMission().getAstronautes())
+            {
+                checkedListBoxAstronaute.Items.Add(a.getNom());
             }
         }
 
@@ -47,14 +54,14 @@ namespace Mission_Control
    
             if (comboBoxHD_H.SelectedItem.ToString() == "24")
             {
-                for (int i = 0; i <= 40; i++)
+                for (int i = 0; i <= 40; i+=10)
                 {
                     comboBoxHD_M.Items.Add(i);
                 }
             }
             else
             {
-                for (int i = 0; i <= 60; i++)
+                for (int i = 0; i <60; i+=10)
                 {
                     comboBoxHD_M.Items.Add(i);
                 }
@@ -67,14 +74,14 @@ namespace Mission_Control
             comboBoxHF_M.Items.Clear();
             if (comboBoxHF_H.SelectedItem.ToString() == "24")
             {
-                for (int i = 0; i <= 40; i++)
+                for (int i = 0; i <= 40; i+=10)
                 {
                     comboBoxHF_M.Items.Add(i);
                 }
             }
             else
             {
-                for (int i = 0; i <= 60; i++)
+                for (int i = 0; i < 60; i+=10)
                 {
                     comboBoxHF_M.Items.Add(i);
                 }
@@ -154,6 +161,11 @@ namespace Mission_Control
                     }
                 break;
             }
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
