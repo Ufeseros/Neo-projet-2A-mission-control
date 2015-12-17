@@ -127,10 +127,15 @@ namespace Mission_Control
             
         }
 
+        private Lieu findLieu()
+        {
+            return Parent.getMission().getCarte().getLieux()[comboBoxLieux.SelectedIndex];
+        }
+
         private void buttonValider_Click(object sender, EventArgs e)
         {
 
-            Parent.getJourSelectione().addActivitée(comboBoxCategorie.Text, comboBoxLibelle.Text, conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text), conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text),Parent.getJourSelectione().getNum());
+            Parent.getJourSelectione().addActivitée(comboBoxCategorie.Text, comboBoxLibelle.Text, conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text), conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text),Parent.getJourSelectione().getNum() , findLieu()  );
             Parent.getJourSelectione().trierActivitée();
             Parent.refreshActivitée(Parent.getJourSelectione());
             this.Close();

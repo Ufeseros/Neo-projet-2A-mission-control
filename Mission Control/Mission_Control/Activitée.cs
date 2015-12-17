@@ -29,15 +29,15 @@ namespace Mission_Control
             participants = new List<Astronaute>();
         }
 
-        public Activitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour)
+        public Activitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour, Lieu lieu)
         {
             this.categorie = categorie;
             this.libelle = libelle;
             this.tempsdébut = tempsdébut;
             this.tempsfin = tempsfin;
             this.numJour = numJour;
+            this.lieu = lieu;
 
-            lieu = new Lieu(0, 0, "default");    // temporaire
 
             participants = new List<Astronaute>();
         }

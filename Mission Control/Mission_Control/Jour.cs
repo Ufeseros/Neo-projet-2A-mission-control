@@ -13,27 +13,29 @@ namespace Mission_Control
         List<Activitée> activitées;
         string compteRendu;
 
-        public Jour(int num)
+        public Jour(int num )
         {
             this.num = num;
             // journée type
             activitées = new List<Activitée>();
 
-            Activitée a = new Activitée("Living", "Spleeping", 0, 420, this.num);
+            Lieu lieu = new Lieu();
+
+            Activitée a = new Activitée("Living", "Spleeping", 0, 420, this.num , lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating", 420, 480, this.num);
+            a = new Activitée("Living", "Eating", 420, 480, this.num, lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Private", 480, 720, this.num);
+            a = new Activitée("Living", "Private", 480, 720, this.num, lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating",720, 840, this.num);
+            a = new Activitée("Living", "Eating", 720, 840, this.num, lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Private", 840, 1140, this.num);
+            a = new Activitée("Living", "Private", 840, 1140, this.num, lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Eating", 1140, 1260, this.num);
+            a = new Activitée("Living", "Eating", 1140, 1260, this.num, lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Private", 1260, 1380, this.num);
+            a = new Activitée("Living", "Private", 1260, 1380, this.num, lieu);
             activitées.Add(a);
-            a = new Activitée("Living", "Sleeping", 1380, 1480, this.num);
+            a = new Activitée("Living", "Sleeping", 1380, 1480, this.num, lieu);
             activitées.Add(a);
         }
 
@@ -52,8 +54,8 @@ namespace Mission_Control
             this.compteRendu = compteRendu;
         }
 
-        public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour){
-            Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour);
+        public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour, Lieu lieu){
+            Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour, lieu);
             activitées.Add(A);
             trierActivitée();
         }
