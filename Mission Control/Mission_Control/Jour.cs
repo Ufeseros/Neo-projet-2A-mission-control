@@ -73,6 +73,12 @@ namespace Mission_Control
                             else
                             {
                                 tmp.Insert(i, a);
+                                activitées[i - 1].setFin(a.getDebut());
+                                if (i<tmp.Count-1)
+                                {
+                                    activitées[i + 1].setDebut(a.getFin());   
+                                }
+                                
                                 done = true;
                             }
                         
