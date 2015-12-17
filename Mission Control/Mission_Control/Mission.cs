@@ -10,17 +10,17 @@ namespace Mission_Control
     public class Mission
     {
         private int Durée;
-        private string carte;
+        private Carte carte;
         private string nom;
         private List<Jour> jours;
         private List<Astronaute> astronautes;
         private int TempsMission;
 
 
-        public Mission(int Durée, string carte, string nom)
+        public Mission(int Durée, string image, string nom)
         {
             this.Durée = Durée;
-            this.carte = carte;
+            this.carte = new Carte(image);
             this.nom = nom;
             jours = new List<Jour>();
             astronautes = new List<Astronaute>();
@@ -70,7 +70,14 @@ namespace Mission_Control
         {
             return astronautes;
         }
+        public Carte getCarte()
+        {
+            return carte;
+        }
 
+
+
+        //XML
         public void genereXml(XmlDocument xmlDoc)
         {
             XmlNode nodeMission = xmlDoc.CreateElement("Mission");
@@ -87,9 +94,9 @@ namespace Mission_Control
             nodeMission.AppendChild(nodeNom);
 
             // Carte mission
-            XmlNode nodeCarte = xmlDoc.CreateElement("Carte");
-            nodeCarte.InnerText = carte;
-            nodeMission.AppendChild(nodeCarte);
+            //XmlNode nodeCarte = xmlDoc.CreateElement("Carte");
+            //nodeCarte.InnerText = carte;
+            //nodeMission.AppendChild(nodeCarte);
 
             // Jours
 
@@ -125,8 +132,8 @@ namespace Mission_Control
                      string nom_mission = nodeMission.SelectSingleNode("Nom").InnerText;
                      this.nom = nom_mission;
 
-                     string carte_mission = nodeMission.SelectSingleNode("Carte").InnerText;
-                     this.carte = carte_mission;
+                     //string carte_mission = nodeMission.SelectSingleNode("Carte").InnerText;
+                     //this.carte = carte_mission;
 
                      int temps_mission = int.Parse(nodeMission.SelectSingleNode("Temps").InnerText);
                      this.TempsMission = temps_mission;

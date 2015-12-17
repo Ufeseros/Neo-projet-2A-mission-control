@@ -38,12 +38,16 @@ namespace Mission_Control
                 comboBoxHD_M.Items.Add(i);
                 comboBoxHF_M.Items.Add(i);
             }
-            //checkedListBoxAstronaute.DataSource = Parent.getMission().getAstronautes();
-
+           
 
             foreach (Astronaute a in Parent.getMission().getAstronautes())
             {
                 checkedListBoxAstronaute.Items.Add(a.getNom());
+            }
+
+            foreach (Lieu l in Parent.getMission().getCarte().getLieux())
+            {
+                comboBoxLieux.Items.Add(l.getNom());
             }
         }
 
@@ -99,9 +103,19 @@ namespace Mission_Control
 
         private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
         {
-            acti_temp.setCoord(e.X, e.Y);
-            Lieu monLieu=acti_temp.getLieu();
-            label2.Text=monLieu.ToString();
+            // recuperation des infos sur la carte
+            int pixel_x=Parent.getMission().getCarte().getPixel_x();
+            int pixel_y = Parent.getMission().getCarte().getPixel_y();
+            int echelle = Parent.getMission().getCarte().getEchelle();
+
+            //Changement de repere
+            int newX = echelle*(e.X -pixel_x );
+            int newY = echelle * (e.Y - pixel_y);
+
+            //Affichage des coordonnées
+            maskedTextBoxX2.Text = newX.ToString();
+            maskedTextBoxY2.Text = newY.ToString(); 
+            
         }
 
         private void buttonValider_Click(object sender, EventArgs e)
@@ -166,6 +180,27 @@ namespace Mission_Control
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxLieux_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //A voir plus tard: afficher les coordonnées du lieu selectionné
+            //maskedTextBoxX1.Text = comboBoxLieux.SelectedItem.getx().ToString();
         }
 
     }

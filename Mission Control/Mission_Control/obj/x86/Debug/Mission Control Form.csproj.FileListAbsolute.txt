@@ -27,3 +27,11 @@ C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\M
 C:\Users\arabin\Documents\GitHub\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.pdb
 D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.exe
 D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.pdb
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.csprojResolveAssemblyReference.cache
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.Form1.resources
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.FormAjoutActivite.resources
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.FormCarte.resources
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission_Control.Properties.Resources.resources
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\obj\x86\Debug\Mission Control Form.csproj.GenerateResource.Cache
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\bin\Debug\Mission Control Form.exe
+D:\Git\Neo-projet-2A-mission-control\Mission Control\Mission_Control\bin\Debug\Mission Control Form.pdb
