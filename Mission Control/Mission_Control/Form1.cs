@@ -86,6 +86,7 @@ namespace Mission_Control
             refreshActivitée(j);
             boutonAjoutActivitée.Enabled = true;
             bouttonSupprimerActivitée.Enabled = false;
+            groupBoxActivitée.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -97,7 +98,7 @@ namespace Mission_Control
         private void Activitee_jour_AfterSelect(object sender, TreeViewEventArgs e)
         {
             bouttonSupprimerActivitée.Enabled = true;
-            groupBox1.Visible = true;
+            groupBoxActivitée.Visible = true;
             Activitée a = (Activitée)AfficheActivitée.SelectedNode.Tag;
 
             LabelLibelleActivitee.Text = a.getLibelle();
@@ -216,6 +217,14 @@ namespace Mission_Control
         public Jour getJourSelectione()
         {
             return (Jour)AfficheJours.SelectedNode.Tag;
+        }
+
+        private void bouttonSupprimerActivitée_Click(object sender, EventArgs e)
+        {
+            getJourSelectione().supprimeActivitée((Activitée)AfficheActivitée.SelectedNode.Tag);
+            refreshActivitée(getJourSelectione());
+            bouttonSupprimerActivitée.Enabled = false;
+            groupBoxActivitée.Visible = false;
         }
     }
 }

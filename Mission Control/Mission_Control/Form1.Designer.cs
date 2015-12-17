@@ -35,7 +35,7 @@
             this.jourPrec = new System.Windows.Forms.Button();
             this.jourSuiv = new System.Windows.Forms.Button();
             this.boutonAjoutActivitée = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxActivitée = new System.Windows.Forms.GroupBox();
             this.labelLieu = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.labelHeureFin = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
             this.bouttonSupprimerActivitée = new System.Windows.Forms.Button();
             this.labelTempsLocalMars = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxActivitée.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,25 +129,25 @@
             this.boutonAjoutActivitée.UseVisualStyleBackColor = true;
             this.boutonAjoutActivitée.Click += new System.EventHandler(this.boutonAjoutActivitée_Click);
             // 
-            // groupBox1
+            // groupBoxActivitée
             // 
-            this.groupBox1.Controls.Add(this.labelLieu);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.labelHeureFin);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.labelHeureDebut);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.LabelLibelleActivitee);
-            this.groupBox1.Controls.Add(this.LabelCategorieActivitee);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(349, 175);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(438, 239);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Détails de l\'activitée";
-            this.groupBox1.Visible = false;
+            this.groupBoxActivitée.Controls.Add(this.labelLieu);
+            this.groupBoxActivitée.Controls.Add(this.label4);
+            this.groupBoxActivitée.Controls.Add(this.labelHeureFin);
+            this.groupBoxActivitée.Controls.Add(this.label6);
+            this.groupBoxActivitée.Controls.Add(this.labelHeureDebut);
+            this.groupBoxActivitée.Controls.Add(this.label3);
+            this.groupBoxActivitée.Controls.Add(this.LabelLibelleActivitee);
+            this.groupBoxActivitée.Controls.Add(this.LabelCategorieActivitee);
+            this.groupBoxActivitée.Controls.Add(this.label2);
+            this.groupBoxActivitée.Controls.Add(this.label1);
+            this.groupBoxActivitée.Location = new System.Drawing.Point(349, 175);
+            this.groupBoxActivitée.Name = "groupBoxActivitée";
+            this.groupBoxActivitée.Size = new System.Drawing.Size(438, 239);
+            this.groupBoxActivitée.TabIndex = 7;
+            this.groupBoxActivitée.TabStop = false;
+            this.groupBoxActivitée.Text = "Détails de l\'activitée";
+            this.groupBoxActivitée.Visible = false;
             // 
             // labelLieu
             // 
@@ -331,6 +331,7 @@
             this.bouttonSupprimerActivitée.TabIndex = 15;
             this.bouttonSupprimerActivitée.Text = "Suprimer l\'activitée";
             this.bouttonSupprimerActivitée.UseVisualStyleBackColor = true;
+            this.bouttonSupprimerActivitée.Click += new System.EventHandler(this.bouttonSupprimerActivitée_Click);
             // 
             // labelTempsLocalMars
             // 
@@ -355,7 +356,7 @@
             this.Controls.Add(this.afficheAstronautes);
             this.Controls.Add(this.sauvegarderMission);
             this.Controls.Add(this.labelTempsLocal);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxActivitée);
             this.Controls.Add(this.boutonAjoutActivitée);
             this.Controls.Add(this.jourSuiv);
             this.Controls.Add(this.jourPrec);
@@ -366,8 +367,8 @@
             this.Name = "Form1";
             this.Text = "Controle de mission";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxActivitée.ResumeLayout(false);
+            this.groupBoxActivitée.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -384,7 +385,7 @@
         private System.Windows.Forms.Button jourPrec;
         private System.Windows.Forms.Button jourSuiv;
         private System.Windows.Forms.Button boutonAjoutActivitée;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxActivitée;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label LabelLibelleActivitee;

@@ -47,6 +47,11 @@ namespace Mission_Control
             trierActivitée();
         }
 
+        public void supprimeActivitée(Activitée a)
+        {
+            activitées.Remove(a);
+        }
+
         //ordonne les activiée par ordre chronologique
         public void trierActivitée()
         {
@@ -64,8 +69,6 @@ namespace Mission_Control
                     bool done = false;
                     while(i >= 0 && done == false)
                     {
-    
-             
                             if (activitées[i - 1].getDebut() > a.getDebut())
                             {
                                 i--;
@@ -87,7 +90,46 @@ namespace Mission_Control
                 activitées.Add(a);
             }
 
+            ajusteActivitée();
+
         }
+
+        public void ajusteActivitée()
+        {
+
+            for (int i = 0; i < activitées.Count; i++)
+            {
+                // la premiere activitée
+                if (i == 0)
+                {
+                    if(activitées[i+1].getDebut() < activitées[i].getFin()){
+                         activitées[i].setFin(activitées[i+1].getDebut());
+                    }                    
+                }
+
+                else if (i < activitées.Count - 1)
+                {
+                    if (activitées[i - 1].getFin() > activitées[i].getDebut())
+                    {
+                        activitées[i].setDebut(activitées[i - 1].getFin());
+                    }
+                    if (activitées[i + 1].getDebut() < activitées[i].getFin())
+                    {
+                        activitées[i].setFin(activitées[i + 1].getDebut());
+                    }  
+                }
+                //la derniere activitée
+                else
+                {
+                    if(activitées[i-1].getFin() > activitées[i].getDebut()){
+                        activitées[i].setDebut(activitées[i-1].getFin());
+                    }
+                }
+
+            }
+
+        }
+
 
         public List<Activitée> getActivitées()
         {
