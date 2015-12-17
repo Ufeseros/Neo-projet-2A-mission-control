@@ -52,5 +52,11 @@ namespace Mission_Control
         {
             return echelle;
         }
+        //Ajout d'un lieu
+        public void addLieu(Lieu lieu)
+        {
+            liste_lieux.Add(lieu);
+        }
+
     }
 }

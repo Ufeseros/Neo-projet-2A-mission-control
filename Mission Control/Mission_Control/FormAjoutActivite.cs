@@ -12,6 +12,7 @@ namespace Mission_Control
     public partial class FormAjoutActivite : Form
     {
         Activitée acti_temp = new Activitée();
+        Lieu lieu_temp = new Lieu();
        // List<string> listeDesCategories;
         //List<string> listeDesLibelle;
         Form1 Parent;
@@ -45,7 +46,11 @@ namespace Mission_Control
                 checkedListBoxAstronaute.Items.Add(a.getNom());
             }
 
-            foreach (Lieu l in Parent.getMission().getCarte().getLieux())
+           
+            List<Lieu> list_lieux=Parent.getMission().getCarte().getLieux();
+
+
+            foreach (Lieu l in list_lieux)
             {
                 comboBoxLieux.Items.Add(l.getNom());
             }
@@ -112,9 +117,13 @@ namespace Mission_Control
             int newX = echelle*(e.X -pixel_x );
             int newY = echelle * (e.Y - pixel_y);
 
+            //Modification des coordonnées:
+            lieu_temp.setx(newX);
+            lieu_temp.sety(newY);
+
             //Affichage des coordonnées
-            maskedTextBoxX2.Text = newX.ToString();
-            maskedTextBoxY2.Text = newY.ToString(); 
+            maskedTextBoxX2.Text = lieu_temp.getx().ToString();
+            maskedTextBoxY2.Text = lieu_temp.gety().ToString(); 
             
         }
 
@@ -200,7 +209,34 @@ namespace Mission_Control
         private void comboBoxLieux_SelectedIndexChanged(object sender, EventArgs e)
         {
             //A voir plus tard: afficher les coordonnées du lieu selectionné
-            //maskedTextBoxX1.Text = comboBoxLieux.SelectedItem.getx().ToString();
+            int i= comboBoxLieux.SelectedIndex;
+            List<Lieu> list_lieux = Parent.getMission().getCarte().getLieux();
+            Lieu monlieu = list_lieux[i];
+            maskedTextBoxX1.Text = monlieu.getx().ToString();
+            maskedTextBoxY1.Text = monlieu.gety().ToString();
+        }
+
+        private void btn_ajout_lieu_Click(object sender, EventArgs e)
+        {
+            lieu_temp.setNom(textBox1.Text);
+
+            Carte carte = Parent.getMission().getCarte();
+            carte.addLieu(lieu_temp);
+
+            //Rafraichissement de la combobox
+            comboBoxLieux.Items.Clear();
+            List<Lieu> list_lieux = Parent.getMission().getCarte().getLieux();
+
+            foreach (Lieu l in list_lieux)
+            {
+                comboBoxLieux.Items.Add(l.getNom());
+            }
+            //effacement des textbox
+            textBox1.Clear();
+            maskedTextBoxX2.Clear();
+            maskedTextBoxY2.Clear();
+
+
         }
 
     }

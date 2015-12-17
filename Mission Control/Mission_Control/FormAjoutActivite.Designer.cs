@@ -52,7 +52,7 @@
             this.maskedTextBoxY2 = new System.Windows.Forms.MaskedTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_ajout_lieu = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.maskedTextBoxY1 = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -281,14 +281,15 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "nom:";
             // 
-            // button1
+            // btn_ajout_lieu
             // 
-            this.button1.Location = new System.Drawing.Point(255, 256);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 42);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Ajouter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_ajout_lieu.Location = new System.Drawing.Point(255, 256);
+            this.btn_ajout_lieu.Name = "btn_ajout_lieu";
+            this.btn_ajout_lieu.Size = new System.Drawing.Size(110, 42);
+            this.btn_ajout_lieu.TabIndex = 26;
+            this.btn_ajout_lieu.Text = "Ajouter lieu";
+            this.btn_ajout_lieu.UseVisualStyleBackColor = true;
+            this.btn_ajout_lieu.Click += new System.EventHandler(this.btn_ajout_lieu_Click);
             // 
             // label11
             // 
@@ -333,7 +334,7 @@
             this.Controls.Add(this.maskedTextBoxY1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.maskedTextBoxX1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_ajout_lieu);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label9);
@@ -392,7 +393,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxY2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_ajout_lieu;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxY1;
         private System.Windows.Forms.Label label12;
