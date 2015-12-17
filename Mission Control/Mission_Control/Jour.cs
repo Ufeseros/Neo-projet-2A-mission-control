@@ -52,6 +52,18 @@ namespace Mission_Control
             activitées.Remove(a);
         }
 
+        public bool contientSortie()
+        {
+            bool result = false;
+
+            foreach (Activitée a in activitées)
+            {
+                if (a.getLibelle() == "Exploration - space suit" || a.getLibelle() == "Exploration - vehicle")
+                    result = true;
+            }
+            return result;
+        }
+
         //ordonne les activiée par ordre chronologique
         public void trierActivitée()
         {

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.chargerMission = new System.Windows.Forms.Button();
             this.AfficheJours = new System.Windows.Forms.TreeView();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,6 +60,8 @@
             this.textBoxAjoutAstronaute = new System.Windows.Forms.TextBox();
             this.bouttonSupprimerActivitée = new System.Windows.Forms.Button();
             this.labelTempsLocalMars = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.buttonRefreshJour = new System.Windows.Forms.Button();
             this.groupBoxActivitée.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +81,7 @@
             this.AfficheJours.Location = new System.Drawing.Point(198, 12);
             this.AfficheJours.Name = "AfficheJours";
             this.AfficheJours.Size = new System.Drawing.Size(121, 392);
+            this.AfficheJours.StateImageList = this.imageList1;
             this.AfficheJours.TabIndex = 1;
             this.AfficheJours.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfficheJours_AfterSelect);
             // 
@@ -342,11 +347,29 @@
             this.labelTempsLocalMars.TabIndex = 16;
             this.labelTempsLocalMars.Text = "temps mars";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "astronaut_256.png");
+            // 
+            // buttonRefreshJour
+            // 
+            this.buttonRefreshJour.Location = new System.Drawing.Point(198, 410);
+            this.buttonRefreshJour.Name = "buttonRefreshJour";
+            this.buttonRefreshJour.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonRefreshJour.Size = new System.Drawing.Size(75, 23);
+            this.buttonRefreshJour.TabIndex = 17;
+            this.buttonRefreshJour.Text = "refresh";
+            this.buttonRefreshJour.UseVisualStyleBackColor = true;
+            this.buttonRefreshJour.Click += new System.EventHandler(this.buttonRefreshJour_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.Controls.Add(this.buttonRefreshJour);
             this.Controls.Add(this.labelTempsLocalMars);
             this.Controls.Add(this.bouttonSupprimerActivitée);
             this.Controls.Add(this.groupBox2);
@@ -408,6 +431,8 @@
         private System.Windows.Forms.TextBox textBoxAjoutAstronaute;
         private System.Windows.Forms.Button bouttonSupprimerActivitée;
         private System.Windows.Forms.Label labelTempsLocalMars;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Button buttonRefreshJour;
     }
 }
 

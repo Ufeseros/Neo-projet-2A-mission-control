@@ -44,8 +44,27 @@ namespace Mission_Control
             {
                 node = new TreeNode("Jour " + (j.getNum()).ToString());
                 node.Tag = j;
-                node.BackColor = Color.Blue;
-                node.ForeColor = Color.White;
+
+                if (M.getTemps() > 88800 * j.getNum())
+                {
+                    node.BackColor = Color.Gray;
+                    node.ForeColor = Color.White;
+                }
+                else if (M.getTemps() < 88800 * j.getNum() && M.getTemps() > 88800 * (j.getNum() - 1))
+                {
+                    node.BackColor = Color.Blue;
+                    node.ForeColor = Color.White;
+                }
+                else 
+                {
+                    node.BackColor = Color.Green;
+                    node.ForeColor = Color.White;
+                }
+
+                if (j.contientSortie())
+                {
+                    node.StateImageIndex = 0;
+                }
                 AfficheJours.Nodes.Add(node);
             }
         }
@@ -225,6 +244,11 @@ namespace Mission_Control
             refreshActivitée(getJourSelectione());
             bouttonSupprimerActivitée.Enabled = false;
             groupBoxActivitée.Visible = false;
+        }
+
+        private void buttonRefreshJour_Click(object sender, EventArgs e)
+        {
+            refreshJours();
         }
     }
 }
