@@ -70,6 +70,13 @@ namespace Mission_Control
             activitées.Remove(a);
         }
 
+
+        //permet de remplacer la liste d'un coup 
+        public void setActivitée(List<Activitée> activitées)
+        {
+            this.activitées = activitées;
+        }
+
         public bool contientSortie()
         {
             bool result = false;
@@ -199,17 +206,15 @@ namespace Mission_Control
             List<Activitée> tmp_activitées = new List<Activitée>();
 
             XmlNode nodeLesActivitées = nodeJour.SelectSingleNode("ListeActivitee");
-            foreach (XmlNode nodeActivitée in nodeLesActivitées.SelectNodes("Activitée"))
+            foreach (XmlNode nodeActivitée in nodeLesActivitées.SelectNodes("Activitee"))
             {
                 tmp_activitées.Add(Activitée.chargerXml(nodeActivitée));
             }
 
             Jour result = new Jour(tmp_num);
+           
             result.setCompteRendu(tmp_compteRendu);
-            foreach (Activitée a in tmp_activitées)
-            {
-                result.addActivitée(a);
-            }
+            result.setActivitée(tmp_activitées);
 
             return result;
         }
