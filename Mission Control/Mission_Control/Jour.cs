@@ -196,6 +196,7 @@ namespace Mission_Control
             rootNode.AppendChild(nodeJour);
         }
 
+<<<<<<< HEAD
         static
         public Jour chargerXml(XmlNode rootNode)
         {
@@ -218,5 +219,17 @@ namespace Mission_Control
 
             return result;
         }
+=======
+        //static
+        //public Jour chargerXml(XmlNode rootNode)
+        //{
+        //    XmlNode nodeJour = rootNode;
+
+        //    int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
+        //    string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu");
+        //    List<Activitée> tmp_activitées = 
+         
+        //}
+>>>>>>> origin/master
     }
 }
