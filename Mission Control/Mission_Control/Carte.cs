@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
+using System.Xml;
 
 namespace Mission_Control
 {
@@ -56,6 +58,64 @@ namespace Mission_Control
         public void addLieu(Lieu lieu)
         {
             liste_lieux.Add(lieu);
+        }
+
+        public void genereXml(XmlDocument xmlDoc, XmlNode rootNode)
+        {
+            XmlNode nodeCarte = xmlDoc.CreateElement("Carte");
+
+            XmlNode nodeImage = xmlDoc.CreateElement("Image");
+            nodeImage.InnerText = image;
+            nodeCarte.AppendChild(nodeImage);
+
+
+            XmlNode nodeEchelle = xmlDoc.CreateElement("Echelle");
+            nodeEchelle.InnerText = echelle.ToString();
+            nodeCarte.AppendChild(nodeEchelle);
+
+            XmlNode nodeX = xmlDoc.CreateElement("x");
+            nodeX.InnerText = pixel_x.ToString();
+            nodeCarte.AppendChild(nodeX);
+
+            XmlNode nodeY = xmlDoc.CreateElement("y");
+            nodeY.InnerText = pixel_y.ToString();
+            nodeCarte.AppendChild(nodeY);
+
+
+            XmlNode nodeListeLieux = xmlDoc.CreateElement("ListeLieux");    
+
+            foreach (Lieu l in liste_lieux)
+            {
+                l.genereXml(xmlDoc, nodeListeLieux);
+            }
+            nodeCarte.AppendChild(nodeListeLieux);
+            
+            rootNode.AppendChild(nodeCarte);
+        }
+
+        static
+        public Carte chargerXml(XmlNode rootNode)
+        {
+            XmlNode nodeCarte = rootNode;
+
+             string tmp_image = nodeCarte.SelectSingleNode("Image").InnerText;
+             int tmp_echelle = int.Parse(nodeCarte.SelectSingleNode("Echelle").InnerText);
+             int tmp_x = int.Parse(nodeCarte.SelectSingleNode("x").InnerText);
+             int tmp_y = int.Parse(nodeCarte.SelectSingleNode("y").InnerText);
+             List<Lieu> tmp_lieux = new List<Lieu>();
+
+             XmlNode nodeLesLieux = nodeCarte.SelectSingleNode("ListeLieux");
+             foreach (XmlNode nodeLieu in nodeLesLieux.SelectNodes("Lieu"))
+             {
+                    tmp_lieux.Add(Lieu.ChargerXml(nodeLieu));
+             }
+            
+            Carte result = new Carte(tmp_echelle,tmp_image,tmp_x,tmp_y);
+            foreach(Lieu l in tmp_lieux){
+                result.addLieu(l);
+            }
+
+            return result;
         }
 
     }

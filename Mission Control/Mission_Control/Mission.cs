@@ -93,29 +93,37 @@ namespace Mission_Control
             nodeNom.InnerText = nom;
             nodeMission.AppendChild(nodeNom);
 
-            // Carte mission
-            //XmlNode nodeCarte = xmlDoc.CreateElement("Carte");
-            //nodeCarte.InnerText = carte;
-            //nodeMission.AppendChild(nodeCarte);
-
-            // Jours
-
-            XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
-
             // temps Mission
 
             XmlNode nodeTemps = xmlDoc.CreateElement("Temps");
             nodeTemps.InnerText = TempsMission.ToString();
             nodeMission.AppendChild(nodeTemps);
 
-           
+
+            // Carte mission
+            carte.genereXml(xmlDoc, nodeMission);
+
+
+            // astronautes
+
+            XmlNode nodeListeAstronaute = xmlDoc.CreateElement("ListeAstronaute");
+            foreach (Astronaute astro in astronautes)
+            {
+                astro.genereXml(xmlDoc, nodeListeAstronaute);
+            }
+            nodeMission.AppendChild(nodeListeAstronaute);
+
+
+            // Jours
+
+            XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
+
             foreach (Jour j in jours)
             {
                 j.genereXml(xmlDoc, nodeListeJours);
             }
-           
-
             nodeMission.AppendChild(nodeListeJours);
+
 
         }
 
@@ -132,15 +140,10 @@ namespace Mission_Control
                      string nom_mission = nodeMission.SelectSingleNode("Nom").InnerText;
                      this.nom = nom_mission;
 
-                     //string carte_mission = nodeMission.SelectSingleNode("Carte").InnerText;
-                     //this.carte = carte_mission;
+                     Carte.chargerXml(nodeMission.SelectSingleNode("Carte"));
 
                      int temps_mission = int.Parse(nodeMission.SelectSingleNode("Temps").InnerText);
                      this.TempsMission = temps_mission;
-
-                     // TO DO : 
-                     // Modification du temps mission selon le temps ou l'application n'as pas été allumée
-                     // il faudra garder la date de la derniere save et comparer avec le temps local
 
                      // Jour.chargerXml ; 
 

@@ -116,7 +116,7 @@ namespace Mission_Control
             nodeActivitee.AppendChild(nodeCategorie);
 
             XmlNode nodeLibelle = xmlDoc.CreateElement("Libelle");
-            nodeLibelle.InnerText = categorie;
+            nodeLibelle.InnerText = libelle;
             nodeActivitee.AppendChild(nodeLibelle);
 
             XmlNode nodeDebut = xmlDoc.CreateElement("HeureDebut");
@@ -135,15 +135,47 @@ namespace Mission_Control
 
             XmlNode nodeListeAstronaute = xmlDoc.CreateElement("ListeAstronaute");
 
-            /*          
-            foreach (Astronaute as in paritcipants)
+                 
+            foreach (Astronaute astro in participants)
             {
-                as.genereXml(xmlDoc, NodeListeJours);
+                astro.genereXml(xmlDoc, nodeListeAstronaute);
             }
-            */
+           
 
             nodeActivitee.AppendChild(nodeListeAstronaute);
             rootNode.AppendChild(nodeActivitee);
+        }
+
+        static
+        public Activitée chargerXml(XmlNode rootNode)
+        {
+            XmlNode nodeActivitée = rootNode;
+
+            string tmp_categorie = nodeActivitée.SelectSingleNode("Categorie").InnerText;
+            string tmp_libelle = nodeActivitée.SelectSingleNode("Libelle").InnerText;
+            int tmp_tempsdébut = int.Parse(nodeActivitée.SelectSingleNode("HeureDebut").InnerText);
+            int tmp_tempsfin = int.Parse(nodeActivitée.SelectSingleNode("HeureFin").InnerText);
+            int tmp_numJour = int.Parse(nodeActivitée.SelectSingleNode("NumJour").InnerText);
+            Lieu tmp_lieu = Lieu.ChargerXml(nodeActivitée.SelectSingleNode("Lieu"));
+
+        List<Astronaute> tmp_participants = new List<Astronaute>();
+
+        XmlNode nodeLesAstronautes = nodeActivitée.SelectSingleNode("ListeAstronaute");
+
+        foreach (XmlNode nodeAstro in nodeLesAstronautes.SelectNodes("Astronaute"))
+        {
+            tmp_participants.Add(Astronaute.chargerXml(nodeAstro));
+        }
+
+        Activitée result = new Activitée(tmp_categorie, tmp_libelle, tmp_tempsdébut, tmp_tempsfin, tmp_numJour, tmp_lieu);
+        foreach (Astronaute a in tmp_participants)
+        {
+            result.addParticipant(a);
+        }
+
+
+        return result;
+
         }
 
 

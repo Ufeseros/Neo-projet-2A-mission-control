@@ -140,9 +140,10 @@ namespace Mission_Control
             acti_temp.setDebut(conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text));
             acti_temp.setFin(conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text));
             acti_temp.setLieu(findLieu());
+            acti_temp.setNumJour(Parent.getJourSelectione().getNum());
 
             if (checkedListBoxAstronaute.CheckedItems.Count != 0)
-            for (int i = 0; i <= checkedListBoxAstronaute.CheckedItems.Count; i++)
+            for (int i = 0; i <= checkedListBoxAstronaute.CheckedItems.Count -1 ; i++)
             {
                 //int j = checkedListBoxAstronaute.CheckedIndex[j];
                 acti_temp.addParticipant(Parent.getMission().getAstronautes()[i]);

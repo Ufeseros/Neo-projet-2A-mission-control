@@ -85,5 +85,21 @@ namespace Mission_Control
 
             rootNode.AppendChild(nodeLieu);
         }
+
+        // Le root node doit toujours etre le node "lieu" 
+        static
+        public Lieu ChargerXml(XmlNode rootNode)
+        {
+
+            XmlNode nodeLieu = rootNode;
+
+            int tmp_x = int.Parse(nodeLieu.SelectSingleNode("x").InnerText);
+            int tmp_y = int.Parse(nodeLieu.SelectSingleNode("y").InnerText);
+            string tmp_nom = nodeLieu.SelectSingleNode("nom").InnerText;
+            
+
+            Lieu result = new Lieu(tmp_x,tmp_y,tmp_nom);
+            return result;
+        }
     }
 }

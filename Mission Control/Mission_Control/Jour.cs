@@ -173,6 +173,9 @@ namespace Mission_Control
             nodeNum.InnerText = num.ToString();
             nodeJour.AppendChild(nodeNum);
 
+            XmlNode nodeCompteRendu = xmlDoc.CreateElement("compteRendu");
+            nodeCompteRendu.InnerText = compteRendu.ToString();
+            nodeJour.AppendChild(nodeCompteRendu);
 
             XmlNode nodeListeActivitee = xmlDoc.CreateElement("ListeActivitee");
 
@@ -181,10 +184,19 @@ namespace Mission_Control
             {
                 a.genereXml(xmlDoc, nodeListeActivitee);
             }
-
-
             nodeJour.AppendChild(nodeListeActivitee);
             rootNode.AppendChild(nodeJour);
+        }
+
+        static
+        public Jour chargerXml(XmlNode rootNode)
+        {
+            XmlNode nodeJour = rootNode;
+
+            int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
+            string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu")
+            List<Activitée> tmp_activitées = 
+         
         }
     }
 }
