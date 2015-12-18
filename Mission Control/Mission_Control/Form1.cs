@@ -199,7 +199,15 @@ namespace Mission_Control
 
         private void chargerMission_Click(object sender, EventArgs e)
         {
-            refreshJours();
+
+            openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "XML-File | *.xml";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                xmlDoc = new XmlDocument();
+                xmlDoc.Load(openFileDialog1.FileName);
+                M = Mission.chargerXml(xmlDoc);
+            }
         }
 
 
@@ -210,8 +218,7 @@ namespace Mission_Control
             saveFileDialog1.Filter = "XML-File | *.xml";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                
+            {               
                 string nomFichier = Path.GetFileNameWithoutExtension(saveFileDialog1.FileName);
                 M.setNom(nomFichier);
                 M.genereXml(xmlDoc);

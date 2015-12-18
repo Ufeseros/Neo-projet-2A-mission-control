@@ -18,6 +18,7 @@ namespace Mission_Control
             this.num = num;
             // journée type
             activitées = new List<Activitée>();
+            compteRendu = "";
 
             Lieu lieu = new Lieu();
 
@@ -192,11 +193,25 @@ namespace Mission_Control
         public Jour chargerXml(XmlNode rootNode)
         {
             XmlNode nodeJour = rootNode;
-
+            
             int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
-            string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu")
-            List<Activitée> tmp_activitées = 
-         
+            string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu").InnerText;
+            List<Activitée> tmp_activitées = new List<Activitée>();
+
+            XmlNode nodeLesActivitées = nodeJour.SelectSingleNode("ListeActivitee");
+            foreach (XmlNode nodeActivitée in nodeLesActivitées.SelectNodes("Activitée"))
+            {
+                tmp_activitées.Add(Activitée.chargerXml(nodeActivitée));
+            }
+
+            Jour result = new Jour(tmp_num);
+            result.setCompteRendu(tmp_compteRendu);
+            foreach (Activitée a in tmp_activitées)
+            {
+                result.addActivitée(a);
+            }
+
+            return result;
         }
     }
 }

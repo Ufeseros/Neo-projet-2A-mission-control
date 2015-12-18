@@ -68,6 +68,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.treeViewAstronauteActivitée = new System.Windows.Forms.TreeView();
             this.label9 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBoxActivitée.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -429,6 +430,10 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "Astronautes participants";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -507,6 +512,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TreeView treeViewAstronauteActivitée;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
