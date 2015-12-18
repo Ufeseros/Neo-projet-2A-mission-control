@@ -188,15 +188,15 @@ namespace Mission_Control
             rootNode.AppendChild(nodeJour);
         }
 
-        static
-        public Jour chargerXml(XmlNode rootNode)
-        {
-            XmlNode nodeJour = rootNode;
+        //static
+        //public Jour chargerXml(XmlNode rootNode)
+        //{
+        //    XmlNode nodeJour = rootNode;
 
-            int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
-            string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu")
-            List<Activitée> tmp_activitées = 
+        //    int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
+        //    string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu");
+        //    List<Activitée> tmp_activitées = 
          
-        }
+        //}
     }
 }

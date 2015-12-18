@@ -142,17 +142,27 @@ namespace Mission_Control
             acti_temp.setLieu(findLieu());
             acti_temp.setNumJour(Parent.getJourSelectione().getNum());
 
-            if (checkedListBoxAstronaute.CheckedItems.Count != 0)
-            for (int i = 0; i <= checkedListBoxAstronaute.CheckedItems.Count -1 ; i++)
+            
+            for (int i = 0; i <= (checkedListBoxAstronaute.Items.Count - 1); i++)
             {
-                //int j = checkedListBoxAstronaute.CheckedIndex[j];
-                acti_temp.addParticipant(Parent.getMission().getAstronautes()[i]);
+                if (checkedListBoxAstronaute.GetItemChecked(i))
+                {
+                    acti_temp.addParticipant(Parent.getMission().getAstronautes()[i]);
+                }
             }
+            if (acti_temp.getDebut() < acti_temp.getFin())
+            {
 
-            Parent.getJourSelectione().addActivitée(acti_temp);
-            Parent.getJourSelectione().trierActivitée();
-            Parent.refreshActivitée(Parent.getJourSelectione());
-            this.Close();
+
+                Parent.getJourSelectione().addActivitée(acti_temp);
+                Parent.getJourSelectione().trierActivitée();
+                Parent.refreshActivitée(Parent.getJourSelectione());
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("L'heure de début doit être avant l'heure de fin");
+            }
         }
 
         private void comboBoxCategorie_SelectionChangeCommitted(object sender, EventArgs e)
@@ -237,6 +247,31 @@ namespace Mission_Control
 
         private void btn_ajout_lieu_Click(object sender, EventArgs e)
         {
+            int x_text= new int();
+            int y_text = new int();
+            try
+            {
+               x_text = Int32.Parse(maskedTextBoxX2.Text);
+               y_text = Int32.Parse(maskedTextBoxY2.Text);
+
+            }
+            catch (FormatException)
+            {
+
+                MessageBox.Show("Veillez entrer une valeur de X entre -978 et 575 . ");
+            }
+            lieu_temp.setx(x_text);
+            lieu_temp.sety(y_text);
+            //try
+            //{
+            //    //int y_text = Int32.Parse(maskedTextBoxY2.Text);
+            //}
+            //catch (FormatException)
+            //{
+
+            //    MessageBox.Show("Veillez entrer une valeur de Y entre -1455 et 1450");
+            //}
+
             lieu_temp.setNom(textBox1.Text);
 
             Carte carte = Parent.getMission().getCarte();
