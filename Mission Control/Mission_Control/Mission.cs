@@ -29,7 +29,7 @@ namespace Mission_Control
                 jours.Add(new Jour(i));
             }
 
-            TempsMission = 88780;
+            TempsMission = 0;
         }
 
         public Mission(int Durée, string nom, Carte carte, int TempsMission, List<Jour> jours, List<Astronaute> astronautes){
@@ -158,7 +158,7 @@ namespace Mission_Control
 
                      List<Astronaute> tmp_listeAstronaute = new List<Astronaute>();
                      XmlNode nodeListeAstronaute = nodeMission.SelectSingleNode("ListeAstronaute");
-                     foreach (XmlNode nodeAstronaute in nodeListeJour.SelectNodes("Astronaute"))
+                     foreach (XmlNode nodeAstronaute in nodeListeAstronaute.SelectNodes("Astronaute"))
                      {
                          tmp_listeAstronaute.Add(Astronaute.chargerXml(nodeAstronaute));
                      }
@@ -167,7 +167,6 @@ namespace Mission_Control
                       return result;
 
                  }
-    
         }
     }
 

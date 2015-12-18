@@ -13,7 +13,7 @@ namespace Mission_Control
         List<Activitée> activitées;
         string compteRendu;
 
-        public Jour(int num )
+        public Jour(int num)
         {
             this.num = num;
             // journée type
@@ -22,7 +22,7 @@ namespace Mission_Control
 
             Lieu lieu = new Lieu();
 
-            Activitée a = new Activitée("Living", "Spleeping", 0, 420, this.num , lieu);
+            Activitée a = new Activitée("Living", "Spleeping", 0, 420, this.num, lieu);
             activitées.Add(a);
             a = new Activitée("Living", "Eating", 420, 480, this.num, lieu);
             activitées.Add(a);
@@ -55,8 +55,9 @@ namespace Mission_Control
             this.compteRendu = compteRendu;
         }
 
-        public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour, Lieu lieu){
-            Activitée A = new Activitée(categorie,libelle,tempsdébut,tempsfin,numJour, lieu);
+        public void addActivitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour, Lieu lieu)
+        {
+            Activitée A = new Activitée(categorie, libelle, tempsdébut, tempsfin, numJour, lieu);
             activitées.Add(A);
             trierActivitée();
         }
@@ -104,18 +105,18 @@ namespace Mission_Control
                 {
                     int i = tmp.Count;
                     bool done = false;
-                    while(i >= 0 && done == false)
+                    while (i >= 0 && done == false)
                     {
-                            if (activitées[i - 1].getDebut() > a.getDebut())
-                            {
-                                i--;
-                            }
-                            else
-                            {
-                                tmp.Insert(i, a);
-                                done = true;
-                            }
-                        
+                        if (activitées[i - 1].getDebut() > a.getDebut())
+                        {
+                            i--;
+                        }
+                        else
+                        {
+                            tmp.Insert(i, a);
+                            done = true;
+                        }
+
                     }
                 }
             }
@@ -139,9 +140,10 @@ namespace Mission_Control
                 // la premiere activitée
                 if (i == 0)
                 {
-                    if(activitées[i+1].getDebut() < activitées[i].getFin()){
-                         activitées[i].setFin(activitées[i+1].getDebut());
-                    }                    
+                    if (activitées[i + 1].getDebut() < activitées[i].getFin())
+                    {
+                        activitées[i].setFin(activitées[i + 1].getDebut());
+                    }
                 }
 
                 else if (i < activitées.Count - 1)
@@ -153,13 +155,14 @@ namespace Mission_Control
                     if (activitées[i + 1].getDebut() < activitées[i].getFin())
                     {
                         activitées[i].setFin(activitées[i + 1].getDebut());
-                    }  
+                    }
                 }
                 //la derniere activitée
                 else
                 {
-                    if(activitées[i-1].getFin() > activitées[i].getDebut()){
-                        activitées[i].setDebut(activitées[i-1].getFin());
+                    if (activitées[i - 1].getFin() > activitées[i].getDebut())
+                    {
+                        activitées[i].setDebut(activitées[i - 1].getFin());
                     }
                 }
 
@@ -196,12 +199,12 @@ namespace Mission_Control
             rootNode.AppendChild(nodeJour);
         }
 
-<<<<<<< HEAD
+
         static
         public Jour chargerXml(XmlNode rootNode)
         {
             XmlNode nodeJour = rootNode;
-            
+
             int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
             string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu").InnerText;
             List<Activitée> tmp_activitées = new List<Activitée>();
@@ -213,23 +216,11 @@ namespace Mission_Control
             }
 
             Jour result = new Jour(tmp_num);
-           
+
             result.setCompteRendu(tmp_compteRendu);
             result.setActivitée(tmp_activitées);
 
             return result;
         }
-=======
-        //static
-        //public Jour chargerXml(XmlNode rootNode)
-        //{
-        //    XmlNode nodeJour = rootNode;
-
-        //    int tmp_num = int.Parse(nodeJour.SelectSingleNode("num").InnerText);
-        //    string tmp_compteRendu = nodeJour.SelectSingleNode("compteRendu");
-        //    List<Activitée> tmp_activitées = 
-         
-        //}
->>>>>>> origin/master
     }
 }

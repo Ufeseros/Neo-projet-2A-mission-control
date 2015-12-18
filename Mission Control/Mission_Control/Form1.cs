@@ -50,7 +50,7 @@ namespace Mission_Control
                     node.BackColor = Color.Gray;
                     node.ForeColor = Color.White;
                 }
-                else if (M.getTemps() < 88800 * j.getNum() && M.getTemps() > 88800 * (j.getNum() - 1))
+                else if (M.getTemps() <= 88800 * j.getNum() && M.getTemps() >= 88800 * (j.getNum() - 1))
                 {
                     node.BackColor = Color.Blue;
                     node.ForeColor = Color.White;
@@ -208,6 +208,8 @@ namespace Mission_Control
                 xmlDoc.Load(openFileDialog1.FileName);
                 M = Mission.chargerXml(xmlDoc);
             }
+            refreshJours();
+            refreshAstronautes();
         }
 
 
