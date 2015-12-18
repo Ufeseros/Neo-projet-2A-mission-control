@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Activitée
+    public class Activitée
     {
         private string categorie;
         private string libelle;
@@ -29,15 +29,15 @@ namespace Mission_Control
             participants = new List<Astronaute>();
         }
 
-        public Activitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour)
+        public Activitée(string categorie, string libelle, int tempsdébut, int tempsfin, int numJour, Lieu lieu)
         {
             this.categorie = categorie;
             this.libelle = libelle;
             this.tempsdébut = tempsdébut;
             this.tempsfin = tempsfin;
             this.numJour = numJour;
+            this.lieu = lieu;
 
-            lieu = new Lieu(0, 0, "default");    // temporaire
 
             participants = new List<Astronaute>();
         }
@@ -46,31 +46,63 @@ namespace Mission_Control
         {
             return libelle;
         }
-
+        public void setLibelle(string libelle)
+        {
+            this.libelle = libelle;
+        }
         public string getCategorie()
         {
             return categorie;
         }
-
+        public void setCategorie(string categorie)
+        {
+            this.categorie = categorie;
+        }
         public int getDebut()
         {
             return tempsdébut;
+        }
+        public void setDebut(int tempsdébut)
+        {
+            this.tempsdébut = tempsdébut;
         }
 
         public int getFin()
         {
             return tempsfin;
         }
+        public void setFin(int tempsfin)
+        {
+            this.tempsfin = tempsfin;
+        }
+
+        public int getNumJour()
+        {
+            return numJour;
+        }
+
+        public void setNumJour(int numJour)
+        {
+            this.numJour=numJour;
+        }
 
         public Lieu getLieu()
         {
             return lieu;
         }
-        public void setCoord(int x, int y)
+        public void setLieu(Lieu lieu)
         {
-            this.lieu.setx(x);
-            this.lieu.sety(y);
-            
+            this.lieu = lieu;
+        }
+
+        public List<Astronaute> getListeAstronaute()
+        {
+            return participants;
+        }
+        public void addParticipant(Astronaute astronaute)
+        {
+            participants.Add(astronaute);
+
         }
 
         // generation xml
@@ -84,7 +116,7 @@ namespace Mission_Control
             nodeActivitee.AppendChild(nodeCategorie);
 
             XmlNode nodeLibelle = xmlDoc.CreateElement("Libelle");
-            nodeLibelle.InnerText = categorie;
+            nodeLibelle.InnerText = libelle;
             nodeActivitee.AppendChild(nodeLibelle);
 
             XmlNode nodeDebut = xmlDoc.CreateElement("HeureDebut");
@@ -103,15 +135,47 @@ namespace Mission_Control
 
             XmlNode nodeListeAstronaute = xmlDoc.CreateElement("ListeAstronaute");
 
-            /*          
-            foreach (Astronaute as in paritcipants)
+                 
+            foreach (Astronaute astro in participants)
             {
-                as.genereXml(xmlDoc, NodeListeJours);
+                astro.genereXml(xmlDoc, nodeListeAstronaute);
             }
-            */
+           
 
             nodeActivitee.AppendChild(nodeListeAstronaute);
             rootNode.AppendChild(nodeActivitee);
+        }
+
+        static
+        public Activitée chargerXml(XmlNode rootNode)
+        {
+            XmlNode nodeActivitée = rootNode;
+
+            string tmp_categorie = nodeActivitée.SelectSingleNode("Categorie").InnerText;
+            string tmp_libelle = nodeActivitée.SelectSingleNode("Libelle").InnerText;
+            int tmp_tempsdébut = int.Parse(nodeActivitée.SelectSingleNode("HeureDebut").InnerText);
+            int tmp_tempsfin = int.Parse(nodeActivitée.SelectSingleNode("HeureFin").InnerText);
+            int tmp_numJour = int.Parse(nodeActivitée.SelectSingleNode("NumJour").InnerText);
+            Lieu tmp_lieu = Lieu.ChargerXml(nodeActivitée.SelectSingleNode("Lieu"));
+
+        List<Astronaute> tmp_participants = new List<Astronaute>();
+
+        XmlNode nodeLesAstronautes = nodeActivitée.SelectSingleNode("ListeAstronaute");
+
+        foreach (XmlNode nodeAstro in nodeLesAstronautes.SelectNodes("Astronaute"))
+        {
+            tmp_participants.Add(Astronaute.chargerXml(nodeAstro));
+        }
+
+        Activitée result = new Activitée(tmp_categorie, tmp_libelle, tmp_tempsdébut, tmp_tempsfin, tmp_numJour, tmp_lieu);
+        foreach (Astronaute a in tmp_participants)
+        {
+            result.addParticipant(a);
+        }
+
+
+        return result;
+
         }
 
 

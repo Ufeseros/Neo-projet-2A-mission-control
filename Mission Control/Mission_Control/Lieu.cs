@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Lieu
+    public class Lieu
     {
         private int x;
         private int y;
@@ -42,10 +42,19 @@ namespace Mission_Control
         {
             return nom;
         }
+
+        public int getx()
+        {
+            return x ;
+        }
         public void setx(int x)
         {
             this.x = x;
             
+        }
+        public int gety()
+        {
+            return y;
         }
         public void sety(int y)
         {
@@ -75,6 +84,22 @@ namespace Mission_Control
             nodeLieu.AppendChild(nodeNomLieu);
 
             rootNode.AppendChild(nodeLieu);
+        }
+
+        // Le root node doit toujours etre le node "lieu" 
+        static
+        public Lieu ChargerXml(XmlNode rootNode)
+        {
+
+            XmlNode nodeLieu = rootNode;
+
+            int tmp_x = int.Parse(nodeLieu.SelectSingleNode("x").InnerText);
+            int tmp_y = int.Parse(nodeLieu.SelectSingleNode("y").InnerText);
+            string tmp_nom = nodeLieu.SelectSingleNode("nom").InnerText;
+            
+
+            Lieu result = new Lieu(tmp_x,tmp_y,tmp_nom);
+            return result;
         }
     }
 }

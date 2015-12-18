@@ -7,19 +7,20 @@ using System.Xml;
 
 namespace Mission_Control
 {
-    class Mission
+    public class Mission
     {
         private int Durée;
-        private string carte;
+        private Carte carte;
         private string nom;
         private List<Jour> jours;
         private List<Astronaute> astronautes;
         private int TempsMission;
 
-        public Mission(int Durée, string carte, string nom)
+
+        public Mission(int Durée, string image, string nom)
         {
             this.Durée = Durée;
-            this.carte = carte;
+            this.carte = new Carte(image);
             this.nom = nom;
             jours = new List<Jour>();
             astronautes = new List<Astronaute>();
@@ -28,7 +29,16 @@ namespace Mission_Control
                 jours.Add(new Jour(i));
             }
 
-            TempsMission = 88780;
+            TempsMission = 0;
+        }
+
+        public Mission(int Durée, string nom, Carte carte, int TempsMission, List<Jour> jours, List<Astronaute> astronautes){
+            this.Durée = Durée;
+            this.nom = nom;
+            this.carte = carte;
+            this.TempsMission = TempsMission;
+            this.jours = jours;
+            this.astronautes = astronautes;
         }
 
         public List<Jour> getJours(){
@@ -69,7 +79,14 @@ namespace Mission_Control
         {
             return astronautes;
         }
+        public Carte getCarte()
+        {
+            return carte;
+        }
 
+
+
+        //XML
         public void genereXml(XmlDocument xmlDoc)
         {
             XmlNode nodeMission = xmlDoc.CreateElement("Mission");
@@ -85,60 +102,71 @@ namespace Mission_Control
             nodeNom.InnerText = nom;
             nodeMission.AppendChild(nodeNom);
 
-            // Carte mission
-            XmlNode nodeCarte = xmlDoc.CreateElement("Carte");
-            nodeCarte.InnerText = carte;
-            nodeMission.AppendChild(nodeCarte);
-
-            // Jours
-
-            XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
-
             // temps Mission
 
             XmlNode nodeTemps = xmlDoc.CreateElement("Temps");
             nodeTemps.InnerText = TempsMission.ToString();
             nodeMission.AppendChild(nodeTemps);
 
-           
+
+            // Carte mission
+            carte.genereXml(xmlDoc, nodeMission);
+
+
+            // astronautes
+
+            XmlNode nodeListeAstronaute = xmlDoc.CreateElement("ListeAstronaute");
+            foreach (Astronaute astro in astronautes)
+            {
+                astro.genereXml(xmlDoc, nodeListeAstronaute);
+            }
+            nodeMission.AppendChild(nodeListeAstronaute);
+
+
+            // Jours
+
+            XmlNode nodeListeJours= xmlDoc.CreateElement("ListeJour");
+
             foreach (Jour j in jours)
             {
                 j.genereXml(xmlDoc, nodeListeJours);
             }
-           
-
             nodeMission.AppendChild(nodeListeJours);
 
+
         }
 
-        public void chargerXml(XmlDocument xmlDoc )
+        static
+        public Mission chargerXml(XmlDocument xmlDoc )
         {
+    
+                XmlNode nodeMission = xmlDoc.SelectSingleNode("Mission");
 
-     // on recupere une liste de noeud "Mission"
-                 XmlNodeList nodelistMissions =  xmlDoc.GetElementsByTagName("Mission");
-                 foreach (XmlNode nodeMission in nodelistMissions)
-                 {
-                     int duree_mission = int.Parse(nodeMission.SelectSingleNode("Duree").InnerText);
-                     this.Durée = duree_mission;
+                     int tmp_duree_mission = int.Parse(nodeMission.SelectSingleNode("Duree").InnerText);
+                     string tmp_nom_mission = nodeMission.SelectSingleNode("Nom").InnerText;
+                     Carte tmp_carte = Carte.chargerXml(nodeMission.SelectSingleNode("Carte"));
 
-                     string nom_mission = nodeMission.SelectSingleNode("Nom").InnerText;
-                     this.nom = nom_mission;
+                     int tmp_temps_mission = int.Parse(nodeMission.SelectSingleNode("Temps").InnerText);
 
-                     string carte_mission = nodeMission.SelectSingleNode("Carte").InnerText;
-                     this.carte = carte_mission;
 
-                     int temps_mission = int.Parse(nodeMission.SelectSingleNode("Temps").InnerText);
-                     this.TempsMission = temps_mission;
+                     List<Jour> tmp_listeJour = new List<Jour>();
+                     XmlNode nodeListeJour = nodeMission.SelectSingleNode("ListeJour");
+                     foreach (XmlNode nodeJour in  nodeListeJour.SelectNodes("Jour"))
+                     {
+                        tmp_listeJour.Add(Jour.chargerXml(nodeJour));
+                     }
 
-                     // TO DO : 
-                     // Modification du temps mission selon le temps ou l'application n'as pas été allumée
-                     // il faudra garder la date de la derniere save et comparer avec le temps local
+                     List<Astronaute> tmp_listeAstronaute = new List<Astronaute>();
+                     XmlNode nodeListeAstronaute = nodeMission.SelectSingleNode("ListeAstronaute");
+                     foreach (XmlNode nodeAstronaute in nodeListeAstronaute.SelectNodes("Astronaute"))
+                     {
+                         tmp_listeAstronaute.Add(Astronaute.chargerXml(nodeAstronaute));
+                     }
 
-                     // Jour.chargerXml ; 
-
+                      Mission result = new Mission(tmp_duree_mission,tmp_nom_mission,tmp_carte,tmp_temps_mission,tmp_listeJour,tmp_listeAstronaute);
+                      return result;
 
                  }
-        
         }
     }
-}
+

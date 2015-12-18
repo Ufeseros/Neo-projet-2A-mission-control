@@ -29,6 +29,11 @@ namespace Mission_Control
             temps.Start();
         }
 
+        public Mission getMission()
+        {
+            return M;
+        }
+
         private void refreshJours()
         {
             AfficheJours.Nodes.Clear();
@@ -39,13 +44,32 @@ namespace Mission_Control
             {
                 node = new TreeNode("Jour " + (j.getNum()).ToString());
                 node.Tag = j;
-                node.BackColor = Color.Blue;
-                node.ForeColor = Color.White;
+
+                if (M.getTemps() > 88800 * j.getNum())
+                {
+                    node.BackColor = Color.Gray;
+                    node.ForeColor = Color.White;
+                }
+                else if (M.getTemps() <= 88800 * j.getNum() && M.getTemps() >= 88800 * (j.getNum() - 1))
+                {
+                    node.BackColor = Color.Blue;
+                    node.ForeColor = Color.White;
+                }
+                else 
+                {
+                    node.BackColor = Color.Green;
+                    node.ForeColor = Color.White;
+                }
+
+                if (j.contientSortie())
+                {
+                    node.StateImageIndex = 0;
+                }
                 AfficheJours.Nodes.Add(node);
             }
         }
 
-        private void refreshActivitée(Jour j)
+        public void refreshActivitée(Jour j)
         {
 
             AfficheActivitée.Nodes.Clear();
@@ -79,6 +103,11 @@ namespace Mission_Control
             Jour j = (Jour)AfficheJours.SelectedNode.Tag;
 
             refreshActivitée(j);
+            boutonAjoutActivitée.Enabled = true;
+            bouttonSupprimerActivitée.Enabled = false;
+            groupBoxActivitée.Visible = false;
+            richTextBox1.Text = getJourSelectione().getCompteRendu();
+            labelJournum.Text = "Jour " + getJourSelectione().getNum();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -89,7 +118,8 @@ namespace Mission_Control
 
         private void Activitee_jour_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            groupBox1.Visible = true;
+            bouttonSupprimerActivitée.Enabled = true;
+            groupBoxActivitée.Visible = true;
             Activitée a = (Activitée)AfficheActivitée.SelectedNode.Tag;
 
             LabelLibelleActivitee.Text = a.getLibelle();
@@ -97,6 +127,15 @@ namespace Mission_Control
             labelHeureDebut.Text = conversionHeure(a.getDebut());
             labelHeureFin.Text = conversionHeure(a.getFin());
             labelLieu.Text = a.getLieu().getNom();
+
+            treeViewAstronauteActivitée.Nodes.Clear();
+            foreach (Astronaute astro in a.getListeAstronaute())
+            {
+                TreeNode node = new TreeNode(astro.getNom());
+                node.Tag = astro;
+                treeViewAstronauteActivitée.Nodes.Add(node);
+            }
+
         }
 
         private string conversionHeure(int temps)
@@ -160,7 +199,17 @@ namespace Mission_Control
 
         private void chargerMission_Click(object sender, EventArgs e)
         {
+
+            openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "XML-File | *.xml";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                xmlDoc = new XmlDocument();
+                xmlDoc.Load(openFileDialog1.FileName);
+                M = Mission.chargerXml(xmlDoc);
+            }
             refreshJours();
+            refreshAstronautes();
         }
 
 
@@ -171,8 +220,7 @@ namespace Mission_Control
             saveFileDialog1.Filter = "XML-File | *.xml";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                
+            {               
                 string nomFichier = Path.GetFileNameWithoutExtension(saveFileDialog1.FileName);
                 M.setNom(nomFichier);
                 M.genereXml(xmlDoc);
@@ -201,8 +249,31 @@ namespace Mission_Control
 
         private void boutonAjoutActivitée_Click(object sender, EventArgs e)
         {
-            Form nouvelleActivitee = new FormAjoutActivite();
+            Form nouvelleActivitee = new FormAjoutActivite(this);
             nouvelleActivitee.Show();
+        }
+
+        public Jour getJourSelectione()
+        {
+            return (Jour)AfficheJours.SelectedNode.Tag;
+        }
+
+        private void bouttonSupprimerActivitée_Click(object sender, EventArgs e)
+        {
+            getJourSelectione().supprimeActivitée((Activitée)AfficheActivitée.SelectedNode.Tag);
+            refreshActivitée(getJourSelectione());
+            bouttonSupprimerActivitée.Enabled = false;
+            groupBoxActivitée.Visible = false;
+        }
+
+        private void buttonRefreshJour_Click(object sender, EventArgs e)
+        {
+            refreshJours();
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            getJourSelectione().setCompteRendu(richTextBox1.Text);
         }
     }
 }
