@@ -26,6 +26,7 @@ namespace Mission_Control
             liste_lieux= new List<Lieu>() ;
             liste_lieux.Add(new Lieu());
         }
+
         public Carte(int echelle,string image,int pixel_x, int pixel_y)
         {
             this.image = image;
@@ -33,7 +34,6 @@ namespace Mission_Control
             this.pixel_x = pixel_x;
             this.pixel_y = pixel_y;
             liste_lieux = new List<Lieu>();
-            liste_lieux.Add(new Lieu());
         }
 
         //Accesseurs

@@ -11,10 +11,10 @@ namespace Mission_Control
 {
     public partial class FormAjoutActivite : Form
     {
+
+        List<Lieu> list_lieux_temp = new List<Lieu>();
         Activitée acti_temp = new Activitée();
         Lieu lieu_temp = new Lieu();
-       // List<string> listeDesCategories;
-        //List<string> listeDesLibelle;
         Form1 Parent;
 
 
@@ -52,6 +52,7 @@ namespace Mission_Control
 
             foreach (Lieu l in list_lieux)
             {
+                list_lieux_temp.Add(l);
                 comboBoxLieux.Items.Add(l.getNom());
             }
         }
@@ -109,12 +110,12 @@ namespace Mission_Control
         private void pictureBox1_DoubleClick(object sender, MouseEventArgs e)
         {
             // recuperation des infos sur la carte
-            int pixel_x=Parent.getMission().getCarte().getPixel_x();
+            int pixel_x = Parent.getMission().getCarte().getPixel_x();
             int pixel_y = Parent.getMission().getCarte().getPixel_y();
             int echelle = Parent.getMission().getCarte().getEchelle();
 
             //Changement de repere
-            int newX = echelle*(e.X -pixel_x );
+            int newX = echelle * (e.X - pixel_x);
             int newY = echelle * (e.Y - pixel_y);
 
             //Modification des coordonnées:
@@ -122,27 +123,51 @@ namespace Mission_Control
             lieu_temp.sety(newY);
 
             //Affichage des coordonnées
-            maskedTextBoxX2.Text = lieu_temp.getx().ToString();
-            maskedTextBoxY2.Text = lieu_temp.gety().ToString(); 
+            numericUpDownX.Value = lieu_temp.getx();
+            numericUpDownY.Value = lieu_temp.gety(); 
             
         }
 
         private Lieu findLieu()
         {
-            return Parent.getMission().getCarte().getLieux()[comboBoxLieux.SelectedIndex];
+            if (comboBoxLieux.SelectedIndex > -1)
+            {
+                return list_lieux_temp[comboBoxLieux.SelectedIndex];
+            }
+            else
+            {
+                return list_lieux_temp[0];
+            }
         }
 
 
         private void buttonValider_Click(object sender, EventArgs e)
         {
-            acti_temp.setCategorie(comboBoxCategorie.Text);
-            acti_temp.setLibelle(comboBoxLibelle.Text);
-            acti_temp.setDebut(conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text));
-            acti_temp.setFin(conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text));
+            //Ajout des parametres de l'activité à partir des éléments sélectionnés
+            if (comboBoxCategorie.Text != "")
+            {
+                acti_temp.setCategorie(comboBoxCategorie.Text);
+            }
+            //acti_temp.setCategorie(comboBoxCategorie.Text);
+            if (comboBoxLibelle.Text != "")
+            {
+                acti_temp.setLibelle(comboBoxLibelle.Text);
+
+            }
+
+            if (conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text) >= 0)
+            {
+                acti_temp.setDebut(conversionHeureMinutes(comboBoxHD_H.Text, comboBoxHD_M.Text));
+            }
+            if (conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text) >= 0)
+            {
+                acti_temp.setFin(conversionHeureMinutes(comboBoxHF_H.Text, comboBoxHF_M.Text));
+            }
+
             acti_temp.setLieu(findLieu());
             acti_temp.setNumJour(Parent.getJourSelectione().getNum());
 
-            
+
             for (int i = 0; i <= (checkedListBoxAstronaute.Items.Count - 1); i++)
             {
                 if (checkedListBoxAstronaute.GetItemChecked(i))
@@ -155,6 +180,7 @@ namespace Mission_Control
 
 
                 Parent.getJourSelectione().addActivitée(acti_temp);
+                Parent.getMission().getCarte().addLieu(acti_temp.getLieu());
                 Parent.getJourSelectione().trierActivitée();
                 Parent.refreshActivitée(Parent.getJourSelectione());
                 this.Close();
@@ -167,7 +193,7 @@ namespace Mission_Control
 
         private void comboBoxCategorie_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
+
             switch (comboBoxCategorie.SelectedItem.ToString())
             {
                 case "Living":
@@ -176,122 +202,96 @@ namespace Mission_Control
                     {
                         comboBoxLibelle.Items.Add(s);
                     }
-                break;
+                    break;
                 case "Science":
                     comboBoxLibelle.Items.Clear();
                     foreach (string s in valeursListes.listeLibelleScience)
                     {
                         comboBoxLibelle.Items.Add(s);
                     }
-                break;
+                    break;
                 case "Maintenance":
                     comboBoxLibelle.Items.Clear();
                     foreach (string s in valeursListes.listeLibelleMaintenance)
                     {
                         comboBoxLibelle.Items.Add(s);
                     }
-                break;
+                    break;
                 case "Communication":
                     comboBoxLibelle.Items.Clear();
                     foreach (string s in valeursListes.listeLibelleCommunication)
                     {
                         comboBoxLibelle.Items.Add(s);
                     }
-                break;
+                    break;
                 case "Repair":
                     comboBoxLibelle.Items.Clear();
                     foreach (string s in valeursListes.listeLibelleRepair)
                     {
                         comboBoxLibelle.Items.Add(s);
                     }
-                break;
+                    break;
                 case "Emergency":
                     comboBoxLibelle.Items.Clear();
                     foreach (string s in valeursListes.listeLibelleEmergency)
                     {
                         comboBoxLibelle.Items.Add(s);
                     }
-                break;
+                    break;
             }
         }
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBoxLieux_SelectedIndexChanged(object sender, EventArgs e)
         {
             //A voir plus tard: afficher les coordonnées du lieu selectionné
             int i= comboBoxLieux.SelectedIndex;
-            List<Lieu> list_lieux = Parent.getMission().getCarte().getLieux();
-            Lieu monlieu = list_lieux[i];
+            
+            Lieu monlieu = list_lieux_temp[i];
             maskedTextBoxX1.Text = monlieu.getx().ToString();
             maskedTextBoxY1.Text = monlieu.gety().ToString();
         }
 
         private void btn_ajout_lieu_Click(object sender, EventArgs e)
         {
-            int x_text= new int();
-            int y_text = new int();
-            try
-            {
-               x_text = Int32.Parse(maskedTextBoxX2.Text);
-               y_text = Int32.Parse(maskedTextBoxY2.Text);
+            int x_text = Convert.ToInt32(numericUpDownX.Value);
+            int y_text = Convert.ToInt32(numericUpDownY.Value);
 
-            }
-            catch (FormatException)
-            {
 
-                MessageBox.Show("Veillez entrer une valeur de X entre -978 et 575 . ");
-            }
             lieu_temp.setx(x_text);
             lieu_temp.sety(y_text);
-            //try
-            //{
-            //    //int y_text = Int32.Parse(maskedTextBoxY2.Text);
-            //}
-            //catch (FormatException)
-            //{
-
-            //    MessageBox.Show("Veillez entrer une valeur de Y entre -1455 et 1450");
-            //}
+            
 
             lieu_temp.setNom(textBox1.Text);
 
-            Carte carte = Parent.getMission().getCarte();
-            carte.addLieu(lieu_temp);
+
+            //Ajout du lieu dans la liste provisoire
+             
+             list_lieux_temp.Add(lieu_temp);
+             lieu_temp = new Lieu();
 
             //Rafraichissement de la combobox
             comboBoxLieux.Items.Clear();
-            List<Lieu> list_lieux = Parent.getMission().getCarte().getLieux();
+            
 
-            foreach (Lieu l in list_lieux)
+            foreach (Lieu l in list_lieux_temp)
             {
                 comboBoxLieux.Items.Add(l.getNom());
             }
             //effacement des textbox
             textBox1.Clear();
-            maskedTextBoxX2.Clear();
-            maskedTextBoxY2.Clear();
+            numericUpDownX.Value = 0;
+            numericUpDownY.Value = 0;
 
+            comboBoxLieux.SelectedIndex = list_lieux_temp.Count - 1;
 
         }
+
+        private void buttonAnnuler_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        
 
     }
 }

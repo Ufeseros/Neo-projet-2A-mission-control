@@ -100,10 +100,19 @@ namespace Mission_Control
 
         private void AfficheJours_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Jour j = (Jour)AfficheJours.SelectedNode.Tag;
+            Jour j = getJourSelectione();
 
             refreshActivitée(j);
-            boutonAjoutActivitée.Enabled = true;
+
+            if (j.getNum() > getMission().getTemps() / 88800)
+            {
+                boutonAjoutActivitée.Enabled = true;
+            }
+            else
+            {
+                boutonAjoutActivitée.Enabled = false;
+            }
+
             bouttonSupprimerActivitée.Enabled = false;
             groupBoxActivitée.Visible = false;
             richTextBox1.Text = getJourSelectione().getCompteRendu();
@@ -118,7 +127,17 @@ namespace Mission_Control
 
         private void Activitee_jour_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            bouttonSupprimerActivitée.Enabled = true;
+
+
+            if (getJourSelectione().getNum() > getMission().getTemps() / 88800)
+            {
+                bouttonSupprimerActivitée.Enabled = true;
+            }
+            else
+            {
+                bouttonSupprimerActivitée.Enabled = false;
+            }
+
             groupBoxActivitée.Visible = true;
             Activitée a = (Activitée)AfficheActivitée.SelectedNode.Tag;
 
@@ -135,6 +154,9 @@ namespace Mission_Control
                 node.Tag = astro;
                 treeViewAstronauteActivitée.Nodes.Add(node);
             }
+
+
+
 
         }
 
