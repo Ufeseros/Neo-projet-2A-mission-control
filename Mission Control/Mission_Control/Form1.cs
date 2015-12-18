@@ -112,7 +112,7 @@ namespace Mission_Control
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form map = new FormCarte();
+            Form map = new FormCarte(this);
             map.Show();
         }
 
